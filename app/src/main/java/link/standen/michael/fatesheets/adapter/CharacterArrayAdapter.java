@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import link.standen.michael.fatesheets.CharacterListActivity;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CharacterViewHolder;
@@ -24,11 +25,11 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 
 	private static final String TAG = CharacterArrayAdapter.class.getName();
 
-	private final Context context;
+	private final CharacterListActivity context;
 	private final int resourceId;
 	private final List<Character> items;
 
-	public CharacterArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Character> items) {
+	public CharacterArrayAdapter(@NonNull CharacterListActivity context, @LayoutRes int resourceId, @NonNull List<Character> items) {
 		super(context, resourceId, items);
 
 		this.context = context;
@@ -42,7 +43,7 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 
 	@NonNull
 	@Override
-	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+	public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 		View view = convertView;
 		CharacterViewHolder holder;
 		if (view == null){
@@ -51,6 +52,15 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 			holder = new CharacterViewHolder();
 			holder.setNameView((TextView) view.findViewById(R.id.character_name));
 			view.setTag(holder);
+
+			view.findViewById(R.id.delete_character).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					CharacterArrayAdapter.this.items.remove(position);
+					CharacterArrayAdapter.this.notifyDataSetChanged();
+					//TODO Delete from storage
+				}
+			});
 		} else {
 			holder = (CharacterViewHolder) view.getTag();
 		}
