@@ -2,12 +2,12 @@ package link.standen.michael.fatesheets;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -19,6 +19,15 @@ import link.standen.michael.fatesheets.model.FAECharacter;
 
 public class CharacterListActivity extends AppCompatActivity {
 
+	private static final String TAG = CharacterListActivity.class.getName();
+
+	private final List<Character> characters;
+	private ArrayAdapter listAdapter;
+
+	public CharacterListActivity() {
+		this.characters = new ArrayList<>();
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,23 +35,23 @@ public class CharacterListActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
+		// Initialise list view
+		listAdapter = new CharacterArrayAdapter(this, R.layout.character_list_list_item, characters);
+		ListView listView = (ListView) findViewById(android.R.id.list);
+		listView.setAdapter(listAdapter);
+
+		// FAB
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				//TODO Create new character
+				//TODO Create new character by entering data screen
+				characters.add(new FAECharacter(getResources().getString(R.string.character_name_default)));
+				listAdapter.notifyDataSetChanged();
 			}
 		});
 
-		//TODO Get and store characters
-		List<Character> characters = new ArrayList<>();
-
-		Character c = new FAECharacter();
-		c.setName("Bob Jones");
-		characters.add(c);
-
-		ListView listView = (ListView) findViewById(android.R.id.list);
-		listView.setAdapter(new CharacterArrayAdapter(this, R.layout.character_list_list_item, characters));
+		//TODO Get characters from files
 	}
 
 	@Override

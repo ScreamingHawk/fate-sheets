@@ -5,4 +5,8 @@ package link.standen.michael.fatesheets.model;
  */
 
 public class FAECharacter extends Character {
+
+	public FAECharacter(String name) {
+		super(name);
+	}
 }

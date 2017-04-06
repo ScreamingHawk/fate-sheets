@@ -1,4 +1,11 @@
 <resources>
 	<string name="app_name">Fate Sheets</string>
 	<string name="action_settings">Settings</string>
+
+	<string name="character_name_default">Hero Protagonist</string>
+	<!--Yours Truly-->
+	<!--Winston Smith-->
+	<!--Emmanuel Goldstein-->
+	<!--Henry Wilcox-->
+	<!--Rick Deckard-->
 </resources>
