@@ -7,7 +7,7 @@
 	android:layout_height="match_parent"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context="link.standen.michael.fatesheets.CharacterListActivity"
-	tools:showIn="@layout/activity_character_list">
+	tools:showIn="@layout/character_list_activity">
 
 	<TextView
 		android:layout_width="wrap_content"
