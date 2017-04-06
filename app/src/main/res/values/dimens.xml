@@ -1,3 +1,7 @@
 <resources>
 	<dimen name="fab_margin">16dp</dimen>
+
+	<dimen name="character_list_padding">16dp</dimen>
+	<dimen name="character_name_padding">5dp</dimen>
+
 </resources>

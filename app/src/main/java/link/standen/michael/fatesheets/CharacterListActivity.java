@@ -8,6 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import link.standen.michael.fatesheets.adapter.CharacterArrayAdapter;
+import link.standen.michael.fatesheets.model.Character;
+import link.standen.michael.fatesheets.model.FAECharacter;
 
 public class CharacterListActivity extends AppCompatActivity {
 
@@ -22,10 +30,19 @@ public class CharacterListActivity extends AppCompatActivity {
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
+				//TODO Create new character
 			}
 		});
+
+		//TODO Get and store characters
+		List<Character> characters = new ArrayList<>();
+
+		Character c = new FAECharacter();
+		c.setName("Bob Jones");
+		characters.add(c);
+
+		ListView listView = (ListView) findViewById(android.R.id.list);
+		listView.setAdapter(new CharacterArrayAdapter(this, R.layout.character_list_list_item, characters));
 	}
 
 	@Override
