@@ -3,9 +3,17 @@
 	<string name="action_settings">Settings</string>
 
 	<string name="character_name_default">Hero Protagonist</string>
+	<string name="title_activity_character_edit">CharacterEditActivity</string>
+	<string name="section_format">Hello World from section: %1$d</string>
 	<!--Yours Truly-->
 	<!--Winston Smith-->
 	<!--Emmanuel Goldstein-->
 	<!--Henry Wilcox-->
 	<!--Rick Deckard-->
+
+	<string name="section_title_description">Description</string>
+	<string name="section_title_aspects">Aspects</string>
+	<string name="section_title_skills">Skills</string>
+	<string name="section_title_stunts">Stunts</string>
+	<string name="section_title_stress">Stress</string>
 </resources>
