@@ -4,7 +4,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	tools:context="link.standen.michael.fatesheets.CharacterListActivity">
+	tools:context="link.standen.michael.fatesheets.activity.CharacterListActivity">
 
 	<TextView
 		android:layout_width="wrap_content"
@@ -21,5 +21,12 @@
 		android:id="@+id/delete_character"
 		android:src="@android:drawable/ic_delete"
 		android:layout_alignParentEnd="true"/>
+
+	<ImageButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/edit_character"
+		android:src="@android:drawable/ic_menu_edit"
+		android:layout_toLeftOf="@id/delete_character"/>
 
 </RelativeLayout>

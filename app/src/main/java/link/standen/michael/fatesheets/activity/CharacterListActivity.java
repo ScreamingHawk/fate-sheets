@@ -1,4 +1,4 @@
-package link.standen.michael.fatesheets;
+package link.standen.michael.fatesheets.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterArrayAdapter;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.FAECharacter;

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import link.standen.michael.fatesheets.CharacterListActivity;
+import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CharacterViewHolder;
