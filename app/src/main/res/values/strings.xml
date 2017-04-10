@@ -11,9 +11,13 @@
 	<!--Henry Wilcox-->
 	<!--Rick Deckard-->
 
-	<string name="section_title_description">Description</string>
+	<string name="section_title_description">About</string>
 	<string name="section_title_aspects">Aspects</string>
 	<string name="section_title_skills">Skills</string>
 	<string name="section_title_stunts">Stunts</string>
 	<string name="section_title_stress">Stress</string>
+
+	<!-- Edit character description -->
+	<string name="edit_character_name_hint">Name</string>
+	<string name="edit_character_description_hint">Description</string>
 </resources>
