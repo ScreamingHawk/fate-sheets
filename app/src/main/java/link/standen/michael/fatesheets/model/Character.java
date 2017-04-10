@@ -1,12 +1,16 @@
 package link.standen.michael.fatesheets.model;
 
+import java.io.Serializable;
+
 /**
  * An abstract class for various character types.
  */
 
-public abstract class Character {
+public abstract class Character implements Serializable {
 
-	private CharacterViewHolder holder;
+	public static final String INTENT_EXTRA_NAME = "Character";
+
+	private transient CharacterViewHolder holder;
 	private String name;
 
 	public Character(String name){
@@ -28,4 +32,5 @@ public abstract class Character {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }

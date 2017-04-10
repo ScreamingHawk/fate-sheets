@@ -1,6 +1,7 @@
 package link.standen.michael.fatesheets.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import link.standen.michael.fatesheets.activity.CharacterEditActivity;
 import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.model.Character;
@@ -55,9 +57,17 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 			view.findViewById(R.id.delete_character).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					CharacterArrayAdapter.this.items.remove(position);
+					items.remove(position);
 					CharacterArrayAdapter.this.notifyDataSetChanged();
 					//TODO Delete from storage
+				}
+			});
+			view.findViewById(R.id.edit_character).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(context, CharacterEditActivity.class);
+					intent.putExtra(Character.INTENT_EXTRA_NAME, items.get(position));
+					context.startActivity(intent);
 				}
 			});
 		} else {
