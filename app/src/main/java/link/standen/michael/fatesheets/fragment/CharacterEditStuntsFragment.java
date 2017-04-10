@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import link.standen.michael.fatesheets.R;
 
 /**
- * A fragment for managing a characters aspects.
+ * A fragment for managing a characters stunts.
  */
-public class CharacterEditAspectsFragment extends Fragment {
+public class CharacterEditStuntsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

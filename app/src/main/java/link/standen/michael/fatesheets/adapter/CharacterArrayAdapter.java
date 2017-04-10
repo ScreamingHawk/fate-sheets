@@ -20,7 +20,6 @@ import link.standen.michael.fatesheets.model.CharacterViewHolder;
 /**
  * Manages a list of characters.
  */
-
 public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 
 	private static final String TAG = CharacterArrayAdapter.class.getName();

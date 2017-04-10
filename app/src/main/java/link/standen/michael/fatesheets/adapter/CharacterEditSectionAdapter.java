@@ -1,27 +1,46 @@
 package link.standen.michael.fatesheets.adapter;
 
-
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.fragment.CharacterEditAspectsFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditDescriptionFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditSkillsFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditStressFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditStuntsFragment;
 
 /**
- * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
- * one of the sections/tabs/pages.
+ * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections.
  */
 public class CharacterEditSectionAdapter extends FragmentPagerAdapter {
 
-	public CharacterEditSectionAdapter(FragmentManager fm) {
+	private final Context context;
+
+	public CharacterEditSectionAdapter(FragmentManager fm, Context context) {
 		super(fm);
+		this.context = context;
 	}
 
 	@Override
 	public Fragment getItem(int position) {
 		// getItem is called to instantiate the fragment for the given page.
 		// Return a PlaceholderFragment (defined as a static inner class below).
-		return new CharacterEditAspectsFragment();
+		switch (position) {
+			case 0:
+				return new CharacterEditDescriptionFragment();
+			case 1:
+				return new CharacterEditAspectsFragment();
+			case 2:
+				return new CharacterEditSkillsFragment();
+			case 3:
+				return new CharacterEditStuntsFragment();
+			case 4:
+				return new CharacterEditStressFragment();
+		}
+		return null;
 	}
 
 	@Override
@@ -33,11 +52,15 @@ public class CharacterEditSectionAdapter extends FragmentPagerAdapter {
 	public CharSequence getPageTitle(int position) {
 		switch (position) {
 			case 0:
-				return "SECTION 1";
+				return context.getResources().getString(R.string.section_title_description);
 			case 1:
-				return "SECTION 2";
+				return context.getResources().getString(R.string.section_title_aspects);
 			case 2:
-				return "SECTION 3";
+				return context.getResources().getString(R.string.section_title_skills);
+			case 3:
+				return context.getResources().getString(R.string.section_title_stunts);
+			case 4:
+				return context.getResources().getString(R.string.section_title_stress);
 		}
 		return null;
 	}
