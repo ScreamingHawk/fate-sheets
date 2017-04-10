@@ -6,8 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -17,7 +15,6 @@ import android.view.View;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterEditSectionAdapter;
-import link.standen.michael.fatesheets.fragment.CharacterEditAspectsFragment;
 
 public class CharacterEditActivity extends AppCompatActivity {
 
@@ -39,7 +36,7 @@ public class CharacterEditActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_character_edit);
+		setContentView(R.layout.character_edit_activity);
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
