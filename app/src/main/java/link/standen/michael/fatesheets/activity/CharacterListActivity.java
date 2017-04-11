@@ -16,7 +16,7 @@ import java.util.List;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterArrayAdapter;
 import link.standen.michael.fatesheets.model.Character;
-import link.standen.michael.fatesheets.model.FAECharacter;
+import link.standen.michael.fatesheets.model.FateCoreCharacter;
 
 public class CharacterListActivity extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class CharacterListActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				//TODO Create new character by entering data screen
-				characters.add(new FAECharacter(getResources().getString(R.string.character_name_default)));
+				characters.add(new FateCoreCharacter(getResources().getString(R.string.character_name_default)));
 				listAdapter.notifyDataSetChanged();
 			}
 		});
