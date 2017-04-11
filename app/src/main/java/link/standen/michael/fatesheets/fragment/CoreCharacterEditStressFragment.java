@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import link.standen.michael.fatesheets.R;
 
 /**
- * A fragment for managing a characters skills.
+ * A fragment for managing a characters stress.
  */
-public class CharacterEditSkillsFragment extends Fragment {
+public class CoreCharacterEditStressFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.character_edit_skills, container, false);
+		View rootView = inflater.inflate(R.layout.core_character_edit_stress, container, false);
 		return rootView;
 	}
 }

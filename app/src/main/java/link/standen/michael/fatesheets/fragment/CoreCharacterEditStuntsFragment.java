@@ -11,12 +11,12 @@ import link.standen.michael.fatesheets.R;
 /**
  * A fragment for managing a characters stunts.
  */
-public class CharacterEditStuntsFragment extends Fragment {
+public class CoreCharacterEditStuntsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.character_edit_stunts, container, false);
+		View rootView = inflater.inflate(R.layout.core_character_edit_stunts, container, false);
 		return rootView;
 	}
 }

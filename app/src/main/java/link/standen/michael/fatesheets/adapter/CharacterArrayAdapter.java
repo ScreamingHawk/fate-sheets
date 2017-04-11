@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import link.standen.michael.fatesheets.activity.CharacterEditActivity;
+import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.model.Character;
@@ -65,7 +65,7 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 			view.findViewById(R.id.edit_character).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent(context, CharacterEditActivity.class);
+					Intent intent = new Intent(context, CoreCharacterEditActivity.class);
 					intent.putExtra(Character.INTENT_EXTRA_NAME, items.get(position));
 					context.startActivity(intent);
 				}

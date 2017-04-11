@@ -16,7 +16,7 @@ import android.view.View;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterEditSectionAdapter;
 
-public class CharacterEditActivity extends AppCompatActivity {
+public class CoreCharacterEditActivity extends AppCompatActivity {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -36,7 +36,7 @@ public class CharacterEditActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.character_edit_activity);
+		setContentView(R.layout.core_character_edit_activity);
 
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);

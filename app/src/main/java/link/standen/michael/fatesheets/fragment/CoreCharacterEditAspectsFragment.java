@@ -11,12 +11,12 @@ import link.standen.michael.fatesheets.R;
 /**
  * A fragment for managing a characters aspects.
  */
-public class CharacterEditAspectsFragment extends Fragment {
+public class CoreCharacterEditAspectsFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.character_edit_aspects, container, false);
+		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);
 		return rootView;
 	}
 }

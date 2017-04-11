@@ -20,7 +20,7 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".activity.CharacterEditActivity"
+			android:name=".activity.CoreCharacterEditActivity"
 			android:label="@string/title_activity_character_edit"
 			android:parentActivityName=".activity.CharacterListActivity"
 			android:theme="@style/AppTheme.NoActionBar">

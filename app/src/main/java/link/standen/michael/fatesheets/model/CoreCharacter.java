@@ -4,9 +4,9 @@ package link.standen.michael.fatesheets.model;
  * A Fate Core character.
  */
 
-public class FateCoreCharacter extends Character {
+public class CoreCharacter extends Character {
 
-	public FateCoreCharacter(String name) {
+	public CoreCharacter(String name) {
 		super(name);
 	}
 }
