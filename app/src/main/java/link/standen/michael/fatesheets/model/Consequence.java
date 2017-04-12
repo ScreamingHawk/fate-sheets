@@ -1,9 +1,11 @@
 package link.standen.michael.fatesheets.model;
 
+import java.io.Serializable;
+
 /**
  * A class for consequence information.
  */
-class Consequence {
+class Consequence implements Serializable {
 
 	private Integer stress;
 	private String description;

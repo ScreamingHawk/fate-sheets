@@ -1,9 +1,11 @@
 package link.standen.michael.fatesheets.model;
 
+import java.io.Serializable;
+
 /**
  * A class for stress information.
  */
-class Stress {
+class Stress implements Serializable {
 
 	private Integer value;
 	private Boolean active;

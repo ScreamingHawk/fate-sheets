@@ -1,9 +1,11 @@
 package link.standen.michael.fatesheets.model;
 
+import java.io.Serializable;
+
 /**
  * A class for skill information.
  */
-class Skill {
+class Skill implements Serializable{
 
 	private Integer value;
 	private String description;

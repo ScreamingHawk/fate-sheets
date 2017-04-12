@@ -1,6 +1,7 @@
 package link.standen.michael.fatesheets.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +21,11 @@ public abstract class Character implements Serializable {
 
 	public Character(String name){
 		this.name = name;
+		aspects = new ArrayList<>();
+		stunts = new ArrayList<>();
+		consequences = new ArrayList<>();
+		consequences.add(new Consequence(1));
+		consequences.add(new Consequence(2));
 	}
 
 	public CharacterViewHolder getHolder() {
