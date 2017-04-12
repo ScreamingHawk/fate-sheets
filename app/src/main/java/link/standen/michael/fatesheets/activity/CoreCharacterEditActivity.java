@@ -15,6 +15,8 @@ import android.view.View;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterEditSectionAdapter;
+import link.standen.michael.fatesheets.model.Character;
+import link.standen.michael.fatesheets.model.CoreCharacter;
 
 public class CoreCharacterEditActivity extends AppCompatActivity {
 
@@ -33,6 +35,8 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 	 */
 	private ViewPager mViewPager;
 
+	private CoreCharacter character;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +47,10 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		}
+
+		// Store the character
+		character = (CoreCharacter) getIntent().getSerializableExtra(Character.INTENT_EXTRA_NAME);
+
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
 		mSectionsPagerAdapter = new CharacterEditSectionAdapter(getSupportFragmentManager(), this);
@@ -86,6 +94,10 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public CoreCharacter getCharacter(){
+		return character;
 	}
 
 

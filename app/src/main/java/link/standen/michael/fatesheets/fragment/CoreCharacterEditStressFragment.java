@@ -1,7 +1,6 @@
 package link.standen.michael.fatesheets.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,7 @@ import link.standen.michael.fatesheets.R;
 /**
  * A fragment for managing a characters stress.
  */
-public class CoreCharacterEditStressFragment extends Fragment {
+public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
