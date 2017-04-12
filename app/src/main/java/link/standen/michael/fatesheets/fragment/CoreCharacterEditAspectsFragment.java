@@ -14,10 +14,25 @@ import link.standen.michael.fatesheets.R;
  */
 public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractFragment {
 
+	private ArrayAdapter<String> listAdapter;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);
+
+		// Initialise list view
+		listAdapter = new ArrayAdapter<>(getContext(), R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
+		ListView listView = (ListView) rootView.findViewById(R.id.aspect_list);
+		listView.setAdapter(listAdapter);
+
+		rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				CoreCharacterEditAspectsFragment.this.getCharacter().getAspects().add("");
+				CoreCharacterEditAspectsFragment.this.listAdapter.notifyDataSetChanged();
+			}
+		});
 
 		return rootView;
 	}
