@@ -24,4 +24,7 @@
 	<string name="edit_character_high_concept_hint">High Concept</string>
 	<string name="edit_character_trouble_hint">Trouble</string>
 	<string name="edit_character_aspect_hint">Aspect</string>
+	<!-- Edit character stunts -->
+	<string name="edit_character_stunt_hint">Stunt</string>
+	<string name="edit_character_extra_hint">Extra</string>
 </resources>

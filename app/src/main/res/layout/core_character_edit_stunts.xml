@@ -14,4 +14,30 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"/>
 
+	<ListView
+		android:id="@+id/stunts_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+	</ListView>
+
+	<ImageButton
+		android:id="@+id/add_stunt"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_input_add"/>
+
+	<ListView
+		android:id="@+id/extras_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+	</ListView>
+
+	<ImageButton
+		android:id="@+id/add_extra"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_input_add"/>
+
 </LinearLayout>
