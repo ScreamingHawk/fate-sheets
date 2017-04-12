@@ -1,39 +1,60 @@
 package link.standen.michael.fatesheets.fragment;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
+import link.standen.michael.fatesheets.model.CoreCharacter;
 
 /**
  * A fragment for managing a characters aspects.
  */
 public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractFragment {
 
-	private DeletableStringArrayAdapter listAdapter;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);
+		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);final CoreCharacter character = getCharacter();
 
-		// Initialise list view
-		listAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+		// High Concept
+		TextView view = (TextView) rootView.findViewById(R.id.high_concept);
+		view.setText(character.getHighConcept());
+		view.setOnKeyListener(new View.OnKeyListener(){
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				character.setHighConcept(((TextView)v).getText().toString());
+				return false;
+			}
+		});
+		// Trouble
+		view = (TextView) rootView.findViewById(R.id.trouble);
+		view.setText(character.getTrouble());
+		view.setOnKeyListener(new View.OnKeyListener(){
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+				character.setTrouble(((TextView)v).getText().toString());
+				return false;
+			}
+		});
+
+		// Aspects
+		final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
 				R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
-		ListView listView = (ListView) rootView.findViewById(R.id.aspect_list);
-		listView.setAdapter(listAdapter);
+		((ListView) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
 
 		rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				CoreCharacterEditAspectsFragment.this.getCharacter().getAspects().add("");
-				CoreCharacterEditAspectsFragment.this.listAdapter.notifyDataSetChanged();
+				character.getAspects().add("");
+				aspectListAdapter.notifyDataSetChanged();
 			}
 		});
 
