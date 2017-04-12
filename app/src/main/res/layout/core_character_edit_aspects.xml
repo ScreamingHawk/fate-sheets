@@ -7,7 +7,7 @@
 			  android:paddingRight="@dimen/activity_horizontal_margin"
 			  android:paddingTop="@dimen/activity_vertical_margin"
 			  android:orientation="vertical"
-			  tools:context="link.standen.michael.fatesheets.fragment.CharacterEditAspectsFragment">
+			  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditAspectsFragment">
 
 	<TextView
 		android:id="@+id/section_label"
@@ -15,28 +15,28 @@
 		android:layout_height="wrap_content"/>
 
 	<EditText
-		android:id="@+id/edit_character_high_concept"
+		android:id="@+id/high_concept"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_high_concept_hint"/>
 
 	<EditText
-		android:id="@+id/edit_character_trouble"
+		android:id="@+id/trouble"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_trouble_hint"/>
 
 	<ListView
-		android:id="@+id/edit_character_aspect_list"
+		android:id="@+id/aspect_list"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
 	</ListView>
 
 	<ImageButton
+		android:id="@+id/add_aspect"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:id="@+id/edit_character_add_aspect"
 		android:src="@android:drawable/ic_menu_edit"/>
 
 </LinearLayout>

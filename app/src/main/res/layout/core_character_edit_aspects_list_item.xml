@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	tools:context="link.standen.michael.fatesheets.fragment.CharacterEditAspectsFragment">
+	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditAspectsFragment">
 
 	<EditText
-		android:id="@+id/edit_character_aspect"
+		android:id="@+id/aspect"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_aspect_hint"/>
 
-</LinearLayout>
+	<ImageButton
+		android:id="@+id/delete_aspect"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_delete"
+		android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>

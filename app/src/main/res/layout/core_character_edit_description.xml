@@ -7,7 +7,7 @@
 			  android:paddingRight="@dimen/activity_horizontal_margin"
 			  android:paddingTop="@dimen/activity_vertical_margin"
 			  android:orientation="vertical"
-			  tools:context="link.standen.michael.fatesheets.fragment.CharacterEditDescriptionFragment">
+			  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditDescriptionFragment">
 
 	<TextView
 		android:id="@+id/section_label"
@@ -15,13 +15,13 @@
 		android:layout_height="wrap_content"/>
 
 	<EditText
-		android:id="@+id/edit_character_name"
+		android:id="@+id/name"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_name_hint"/>
 
 	<EditText
-		android:id="@+id/edit_character_description"
+		android:id="@+id/description"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:minLines="2"
