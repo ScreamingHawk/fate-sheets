@@ -8,13 +8,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
+import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 
 /**
  * A fragment for managing a characters aspects.
  */
 public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractFragment {
 
-	private ArrayAdapter<String> listAdapter;
+	private DeletableStringArrayAdapter listAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -22,7 +24,8 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);
 
 		// Initialise list view
-		listAdapter = new ArrayAdapter<>(getContext(), R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
+		listAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+				R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
 		ListView listView = (ListView) rootView.findViewById(R.id.aspect_list);
 		listView.setAdapter(listAdapter);
 

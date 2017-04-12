@@ -37,6 +37,6 @@
 		android:id="@+id/add_aspect"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_menu_edit"/>
+		android:src="@android:drawable/ic_input_add"/>
 
 </LinearLayout>
