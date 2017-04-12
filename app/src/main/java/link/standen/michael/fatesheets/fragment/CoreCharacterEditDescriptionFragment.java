@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.model.CoreCharacter;
 
 /**
  * A fragment for managing a characters description.
@@ -19,18 +20,25 @@ public class CoreCharacterEditDescriptionFragment extends CoreCharacterEditAbstr
 							 Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.core_character_edit_description, container, false);
 
-		// Update fields on key press
-		rootView.findViewById(R.id.name).setOnKeyListener(new View.OnKeyListener(){
+		final CoreCharacter character = getCharacter();
+
+		// Name
+		TextView view = (TextView) rootView.findViewById(R.id.name);
+		view.setText(character.getName());
+		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				getCharacter().setName(((TextView)v).getText().toString());
+				character.setName(((TextView)v).getText().toString());
 				return false;
 			}
 		});
-		rootView.findViewById(R.id.description).setOnKeyListener(new View.OnKeyListener(){
+		// Description
+		view = (TextView) rootView.findViewById(R.id.description);
+		view.setText(character.getDescription());
+		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				getCharacter().setDescription(((TextView)v).getText().toString());
+				character.setDescription(((TextView)v).getText().toString());
 				return false;
 			}
 		});
