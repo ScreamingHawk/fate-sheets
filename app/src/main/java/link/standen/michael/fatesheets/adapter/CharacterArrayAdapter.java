@@ -77,7 +77,6 @@ public class CharacterArrayAdapter extends ArrayAdapter<Character> {
 		final Character item = getItem(position);
 		if (item != null){
 			holder.setCharacter(item);
-			item.setHolder(holder);
 			holder.getNameView().setText(item.getName());
 		}
 		return view;

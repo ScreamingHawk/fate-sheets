@@ -11,8 +11,6 @@ public abstract class Character implements Serializable {
 
 	public static final String INTENT_EXTRA_NAME = "Character";
 
-	private transient CharacterViewHolder holder;
-
 	private String name;
 	private String description;
 	private List<String> aspects;
@@ -27,14 +25,6 @@ public abstract class Character implements Serializable {
 		consequences.add(new Consequence(2));
 		consequences.add(new Consequence(4));
 		consequences.add(new Consequence(6));
-	}
-
-	public CharacterViewHolder getHolder() {
-		return holder;
-	}
-
-	public void setHolder(CharacterViewHolder holder) {
-		this.holder = holder;
 	}
 
 	public String getName() {
