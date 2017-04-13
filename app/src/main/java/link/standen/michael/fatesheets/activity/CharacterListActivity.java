@@ -15,7 +15,7 @@ import java.util.List;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterArrayAdapter;
-import link.standen.michael.fatesheets.helper.CharacterHelper;
+import link.standen.michael.fatesheets.util.CharacterHelper;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 

@@ -1,4 +1,4 @@
-package link.standen.michael.fatesheets.helper;
+package link.standen.michael.fatesheets.util;
 
 import android.content.Context;
 
