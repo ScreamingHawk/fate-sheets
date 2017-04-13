@@ -10,6 +10,7 @@ import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.adapter.SkillArrayAdapter;
+import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 import link.standen.michael.fatesheets.model.Skill;
 
@@ -28,7 +29,7 @@ public class CoreCharacterEditSkillsFragment extends CoreCharacterEditAbstractFr
 		// Aspects
 		final SkillArrayAdapter skillListAdapter = new SkillArrayAdapter((CoreCharacterEditActivity) getContext(),
 				R.layout.core_character_edit_skills_list_item, getCharacter().getSkills());
-		((ListView) rootView.findViewById(R.id.skills_list)).setAdapter(skillListAdapter);
+		((AdapterLinearLayout) rootView.findViewById(R.id.skills_list)).setAdapter(skillListAdapter);
 
 		rootView.findViewById(R.id.add_skill).setOnClickListener(new View.OnClickListener(){
 			@Override

@@ -1,57 +1,65 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  xmlns:tools="http://schemas.android.com/tools"
-			  android:layout_width="match_parent"
-			  android:layout_height="match_parent"
-			  android:paddingBottom="@dimen/activity_vertical_margin"
-			  android:paddingLeft="@dimen/activity_horizontal_margin"
-			  android:paddingRight="@dimen/activity_horizontal_margin"
-			  android:paddingTop="@dimen/activity_vertical_margin"
-			  android:orientation="vertical"
-			  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+				  xmlns:tools="http://schemas.android.com/tools"
+				  android:layout_width="match_parent"
+				  android:layout_height="match_parent"
+				  android:paddingBottom="@dimen/activity_vertical_margin"
+				  android:paddingLeft="@dimen/activity_horizontal_margin"
+				  android:paddingRight="@dimen/activity_horizontal_margin"
+				  android:paddingTop="@dimen/activity_vertical_margin"
+				  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
 
-	<TextView
-		android:id="@+id/section_label"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
-
-	<TextView
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/edit_character_stunts_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
+		android:orientation="vertical">
 
-	<ListView
-		android:id="@+id/stunts_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		<TextView
+			android:id="@+id/section_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
 
-	</ListView>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_stunts_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
 
-	<ImageButton
-		android:id="@+id/add_stunt"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/stunts_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/edit_character_extras_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
 
-	<ListView
-		android:id="@+id/extras_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		<ImageButton
+			android:id="@+id/add_stunt"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_input_add"/>
 
-	</ListView>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_extras_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
 
-	<ImageButton
-		android:id="@+id/add_extra"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/extras_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-</LinearLayout>
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+
+		<ImageButton
+			android:id="@+id/add_extra"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_input_add"/>
+
+	</LinearLayout>
+</ScrollView>

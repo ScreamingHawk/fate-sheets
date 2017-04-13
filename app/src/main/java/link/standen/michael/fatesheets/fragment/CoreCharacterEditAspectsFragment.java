@@ -12,6 +12,7 @@ import android.widget.TextView;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
+import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 
 /**
@@ -50,7 +51,7 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 		// Aspects
 		final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
 				R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
-		((ListView) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
+		((AdapterLinearLayout) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
 
 		rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener(){
 			@Override
