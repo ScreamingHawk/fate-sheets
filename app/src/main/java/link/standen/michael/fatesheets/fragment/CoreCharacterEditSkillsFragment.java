@@ -33,7 +33,7 @@ public class CoreCharacterEditSkillsFragment extends CoreCharacterEditAbstractFr
 		rootView.findViewById(R.id.add_skill).setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				character.getSkills().add(new Skill(0, ""));
+				character.getSkills().add(new Skill(null, ""));
 				skillListAdapter.notifyDataSetChanged();
 			}
 		});

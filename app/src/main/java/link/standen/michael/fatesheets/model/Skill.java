@@ -12,6 +12,10 @@ public class Skill implements Serializable, Comparable<Skill> {
 	private Integer value;
 	private String description;
 
+	public Skill(Integer value){
+		this(value, "");
+	}
+
 	public Skill(Integer value, String description){
 		this.value = value;
 		this.description = description;

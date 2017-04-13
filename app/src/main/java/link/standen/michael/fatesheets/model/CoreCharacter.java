@@ -19,6 +19,12 @@ public class CoreCharacter extends Character {
 	public CoreCharacter(String name) {
 		super(name);
 		skills = new ArrayList<>();
+		// Init skills (1 at 5, 2 at 4...)
+		for (int i = 5; i > 0; i--){
+			for (int j = 5; j >= i; j--){
+				skills.add(new Skill(i));
+			}
+		}
 		extras = new ArrayList<>();
 		// Init stresses
 		physicalStress = new ArrayList<>();

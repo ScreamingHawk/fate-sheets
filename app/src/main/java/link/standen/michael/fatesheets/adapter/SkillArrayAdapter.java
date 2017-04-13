@@ -61,9 +61,11 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 
 		final Skill item = getItem(position);
 
+		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
-		valueView.setText(item.getValue().toString());
-		// Update value field on focus lost
+		if (item.getValue() != null) {
+			valueView.setText(item.getValue().toString());
+		}
 		valueView.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -76,6 +78,7 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 			}
 		});
 
+		// Description
 		Spinner descriptionView = ((Spinner)view.findViewById(R.id.description));
 		final String description = getItem(position).getDescription();
 		if (description != null) {
