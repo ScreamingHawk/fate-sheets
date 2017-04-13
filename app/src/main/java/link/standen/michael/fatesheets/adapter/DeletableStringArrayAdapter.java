@@ -21,7 +21,7 @@ import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CharacterViewHolder;
 
 /**
- * Manages a list of characters.
+ * Manages a list of deletable strings.
  */
 public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 
