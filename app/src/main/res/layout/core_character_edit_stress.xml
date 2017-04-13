@@ -1,80 +1,90 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  xmlns:tools="http://schemas.android.com/tools"
-			  android:layout_width="match_parent"
-			  android:layout_height="match_parent"
-			  android:paddingBottom="@dimen/activity_vertical_margin"
-			  android:paddingLeft="@dimen/activity_horizontal_margin"
-			  android:paddingRight="@dimen/activity_horizontal_margin"
-			  android:paddingTop="@dimen/activity_vertical_margin"
-			  android:orientation="vertical"
-			  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStressFragment">
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStressFragment">
 
-	<TextView
-		android:id="@+id/section_label"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
-
-	<TextView
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="@string/edit_character_mental_stress_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/section_label"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_mental_stress_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
 
 
-	<ListView
-		android:id="@+id/physical_stress_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/physical_stress_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-	</ListView>
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
 
-	<ImageButton
-		android:id="@+id/add_physical_stress"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
+		<ImageButton
+			android:id="@+id/add_physical_stress"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_input_add"/>
 
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/edit_character_physical_stress_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
-
-
-	<ListView
-		android:id="@+id/mental_stress_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-
-	</ListView>
-
-	<ImageButton
-		android:id="@+id/add_mental_stress"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
-
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/edit_character_consequences_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_physical_stress_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
 
 
-	<ListView
-		android:id="@+id/consequence_list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/mental_stress_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-	</ListView>
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
 
-	<ImageButton
-		android:id="@+id/add_consequence"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
+		<ImageButton
+			android:id="@+id/add_mental_stress"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_input_add"/>
 
-</LinearLayout>
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_consequences_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
+
+
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/consequence_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+
+		<ImageButton
+			android:id="@+id/add_consequence"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@android:drawable/ic_input_add"/>
+
+	</LinearLayout>
+
+</ScrollView>
