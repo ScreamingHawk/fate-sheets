@@ -24,9 +24,12 @@
 	<string name="edit_character_high_concept_hint">High Concept</string>
 	<string name="edit_character_trouble_hint">Trouble</string>
 	<string name="edit_character_aspect_hint">Aspect</string>
+	<string name="edit_character_aspects_title">Aspects</string>
 	<!-- Edit character stunts -->
 	<string name="edit_character_stunt_hint">Stunt</string>
+	<string name="edit_character_stunts_title">Stunts</string>
 	<string name="edit_character_extra_hint">Extra</string>
+	<string name="edit_character_extras_title">Extras</string>
 	<!-- Edit character skills -->
 	<string name="edit_character_skill_prompt">Skill</string>
 	<string-array name="core_skills">
@@ -56,6 +59,11 @@
 	<string name="edit_character_consequence_moderate_hint">Moderate</string>
 	<string name="edit_character_consequence_severe_hint">Severe</string>
 
+	<string name="edit_character_mental_stress_title">Mental Stress</string>
+	<string name="edit_character_physical_stress_title">Physical Stress</string>
+	<string name="edit_character_consequences_title">Consequences</string>
 
+
+	<!-- General -->
 	<string name="number_zero_hint">0</string>
 </resources>

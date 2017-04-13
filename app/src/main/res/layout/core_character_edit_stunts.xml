@@ -14,6 +14,13 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"/>
 
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_stunts_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
+
 	<ListView
 		android:id="@+id/stunts_list"
 		android:layout_width="match_parent"
@@ -26,6 +33,13 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:src="@android:drawable/ic_input_add"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_extras_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
 
 	<ListView
 		android:id="@+id/extras_list"

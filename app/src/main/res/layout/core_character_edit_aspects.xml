@@ -26,6 +26,13 @@
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_trouble_hint"/>
 
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_aspects_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
+
 	<ListView
 		android:id="@+id/aspect_list"
 		android:layout_width="match_parent"

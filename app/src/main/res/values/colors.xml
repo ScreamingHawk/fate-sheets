@@ -6,4 +6,6 @@
 
 	<color name="colorAccent">#E040FB</color>
 	<color name="colorTint">#FFFFFF</color>
+
+	<color name="colorFaded">#999999</color>
 </resources>
