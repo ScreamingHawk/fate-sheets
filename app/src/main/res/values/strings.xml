@@ -50,4 +50,12 @@
 		<item>Stealth</item>
 		<item>Will</item>
 	</string-array>
+	<!-- Edit character stress -->
+	<string name="edit_character_consequence_hint">Consequence</string>
+	<string name="edit_character_consequence_mild_hint">Mild</string>
+	<string name="edit_character_consequence_moderate_hint">Moderate</string>
+	<string name="edit_character_consequence_severe_hint">Severe</string>
+
+
+	<string name="number_zero_hint">0</string>
 </resources>

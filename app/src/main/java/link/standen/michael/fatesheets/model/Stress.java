@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * A class for stress information.
  */
-class Stress implements Serializable {
+public class Stress implements Serializable {
 
 	private Integer value;
 	private Boolean active;

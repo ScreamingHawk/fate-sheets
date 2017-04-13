@@ -5,26 +5,26 @@ import java.io.Serializable;
 /**
  * A class for consequence information.
  */
-class Consequence implements Serializable {
+public class Consequence implements Serializable {
 
-	private Integer stress;
+	private Integer value;
 	private String description;
 
-	public Consequence(Integer stress){
-		this(stress, null);
+	public Consequence(Integer value){
+		this(value, null);
 	}
 
-	public Consequence(Integer stress, String description){
-		this.stress = stress;
+	public Consequence(Integer value, String description){
+		this.value = value;
 		this.description = description;
 	}
 
-	public Integer getStress() {
-		return stress;
+	public Integer getValue() {
+		return value;
 	}
 
-	public void setStress(Integer stress) {
-		this.stress = stress;
+	public void setValue(Integer value) {
+		this.value = value;
 	}
 
 	public String getDescription() {

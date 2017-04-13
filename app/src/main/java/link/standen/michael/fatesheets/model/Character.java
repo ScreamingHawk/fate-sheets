@@ -24,8 +24,9 @@ public abstract class Character implements Serializable {
 		aspects = new ArrayList<>();
 		stunts = new ArrayList<>();
 		consequences = new ArrayList<>();
-		consequences.add(new Consequence(1));
 		consequences.add(new Consequence(2));
+		consequences.add(new Consequence(4));
+		consequences.add(new Consequence(6));
 	}
 
 	public CharacterViewHolder getHolder() {

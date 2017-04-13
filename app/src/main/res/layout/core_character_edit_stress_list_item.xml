@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStressFragment">
+
+	<CheckBox
+		android:id="@+id/active"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentStart="true"/>
+
+	<ImageButton
+		android:id="@+id/delete"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_delete"
+		android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
