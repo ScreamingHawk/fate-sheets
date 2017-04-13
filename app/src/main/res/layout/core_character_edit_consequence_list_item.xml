@@ -30,6 +30,7 @@
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_consequence_hint"
 		android:layout_toEndOf="@id/value"
-		android:layout_toStartOf="@id/delete"/>
+		android:layout_toStartOf="@id/delete"
+		android:layout_centerVertical="true"/>
 
 </RelativeLayout>

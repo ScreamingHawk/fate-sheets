@@ -19,6 +19,7 @@
 		android:layout_height="wrap_content"
 		android:hint="@string/edit_character_extra_hint"
 		android:layout_alignParentStart="true"
-		android:layout_toStartOf="@id/delete"/>
+		android:layout_toStartOf="@id/delete"
+		android:layout_centerVertical="true"/>
 
 </RelativeLayout>
