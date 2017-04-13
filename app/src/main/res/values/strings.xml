@@ -27,4 +27,27 @@
 	<!-- Edit character stunts -->
 	<string name="edit_character_stunt_hint">Stunt</string>
 	<string name="edit_character_extra_hint">Extra</string>
+	<!-- Edit character skills -->
+	<string name="edit_character_skill_prompt">Skill</string>
+	<string-array name="core_skills">
+		<item></item>
+		<item>Athletics</item>
+		<item>Burglary</item>
+		<item>Contacts</item>
+		<item>Crafts</item>
+		<item>Deceive</item>
+		<item>Drive</item>
+		<item>Empathy</item>
+		<item>Fight</item>
+		<item>Investigate</item>
+		<item>Lore</item>
+		<item>Notice</item>
+		<item>Physique</item>
+		<item>Provoke</item>
+		<item>Rapport</item>
+		<item>Resources</item>
+		<item>Shoot</item>
+		<item>Stealth</item>
+		<item>Will</item>
+	</string-array>
 </resources>

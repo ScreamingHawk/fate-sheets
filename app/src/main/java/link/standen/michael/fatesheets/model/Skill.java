@@ -1,11 +1,13 @@
 package link.standen.michael.fatesheets.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
  * A class for skill information.
  */
-class Skill implements Serializable{
+public class Skill implements Serializable, Comparable<Skill> {
 
 	private Integer value;
 	private String description;
@@ -29,5 +31,13 @@ class Skill implements Serializable{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	@Override
+	public int compareTo(@NonNull Skill other) {
+		if (this.getValue().equals(other.getValue())){
+			return this.getDescription().compareTo(other.getDescription());
+		}
+		return this.getValue().compareTo(other.getValue());
 	}
 }
