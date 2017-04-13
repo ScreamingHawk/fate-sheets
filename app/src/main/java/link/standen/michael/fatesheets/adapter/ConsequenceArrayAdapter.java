@@ -8,9 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.List;
@@ -18,20 +16,19 @@ import java.util.List;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.model.Consequence;
-import link.standen.michael.fatesheets.model.Skill;
 
 /**
  * Manages a list of character skills.
  */
-public class ConseqeunceArrayAdapter extends ArrayAdapter<Consequence> {
+public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 
-	private static final String TAG = ConseqeunceArrayAdapter.class.getName();
+	private static final String TAG = ConsequenceArrayAdapter.class.getName();
 
 	private final CoreCharacterEditActivity context;
 	private final int resourceId;
 	private final List<Consequence> items;
 
-	public ConseqeunceArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<Consequence> items) {
+	public ConsequenceArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<Consequence> items) {
 		super(context, resourceId, items);
 
 		this.context = context;
@@ -56,7 +53,7 @@ public class ConseqeunceArrayAdapter extends ArrayAdapter<Consequence> {
 			@Override
 			public void onClick(View v) {
 				items.remove(position);
-				ConseqeunceArrayAdapter.this.notifyDataSetChanged();
+				ConsequenceArrayAdapter.this.notifyDataSetChanged();
 			}
 		});
 

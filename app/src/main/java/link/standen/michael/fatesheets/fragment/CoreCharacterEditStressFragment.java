@@ -8,11 +8,9 @@ import android.widget.ListView;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
-import link.standen.michael.fatesheets.adapter.ConseqeunceArrayAdapter;
-import link.standen.michael.fatesheets.adapter.SkillArrayAdapter;
+import link.standen.michael.fatesheets.adapter.ConsequenceArrayAdapter;
 import link.standen.michael.fatesheets.model.Consequence;
 import link.standen.michael.fatesheets.model.CoreCharacter;
-import link.standen.michael.fatesheets.model.Skill;
 
 /**
  * A fragment for managing a characters stress.
@@ -27,16 +25,16 @@ public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFr
 		final CoreCharacter character = getCharacter();
 
 		// Consequences
-		final ConseqeunceArrayAdapter conseqeunceListAdapter = new ConseqeunceArrayAdapter((CoreCharacterEditActivity) getContext(),
+		final ConsequenceArrayAdapter consequenceListAdapter = new ConsequenceArrayAdapter((CoreCharacterEditActivity) getContext(),
 				R.layout.core_character_edit_consequence_list_item, getCharacter().getConsequences());
-		((ListView) rootView.findViewById(R.id.consequence_list)).setAdapter(conseqeunceListAdapter);
+		((ListView) rootView.findViewById(R.id.consequence_list)).setAdapter(consequenceListAdapter);
 
 		rootView.findViewById(R.id.add_consequence).setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v) {
 				int nextValue = character.getConsequences().size() * 2 + 2;
 				character.getConsequences().add(new Consequence(nextValue));
-				conseqeunceListAdapter.notifyDataSetChanged();
+				consequenceListAdapter.notifyDataSetChanged();
 			}
 		});
 
