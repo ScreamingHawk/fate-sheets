@@ -45,7 +45,7 @@ public class CoreCharacterEditStuntsFragment extends CoreCharacterEditAbstractFr
 			@Override
 			public void onClick(View v) {
 				character.getExtras().add("");
-				stuntListAdapter.notifyDataSetChanged();
+				extraListAdapter.notifyDataSetChanged();
 			}
 		});
 
