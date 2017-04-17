@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
  */
 public class AdapterLinearLayout extends LinearLayout {
 
+	private static final String TAG = AdapterLinearLayout.class.getName();
+
 	private Adapter adapter;
 	private DataSetObserver dataSetObserver = new DataSetObserver() {
 		@Override
@@ -44,27 +46,37 @@ public class AdapterLinearLayout extends LinearLayout {
 	}
 
 	public void setAdapter(Adapter adapter) {
-		if (this.adapter == adapter) return;
+		if (this.adapter == adapter){
+			return;
+		}
 		this.adapter = adapter;
-		if (adapter != null) adapter.registerDataSetObserver(dataSetObserver);
+		if (adapter != null){
+			adapter.registerDataSetObserver(dataSetObserver);
+		}
 		reloadChildViews();
 	}
 
 	@Override
 	protected void onDetachedFromWindow() {
 		super.onDetachedFromWindow();
-		if (adapter != null) adapter.unregisterDataSetObserver(dataSetObserver);
+		if (adapter != null){
+			adapter.unregisterDataSetObserver(dataSetObserver);
+		}
 	}
 
 	private void reloadChildViews() {
-		removeAllViews();
+		removeAllViewsInLayout();
 
-		if (adapter == null) return;
+		if (adapter == null){
+			return;
+		}
 
 		int count = adapter.getCount();
-		for (int position = 0; position < count; ++position) {
+		for (int position = 0; position < count; position++) {
 			View v = adapter.getView(position, null, this);
-			if (v != null) addView(v);
+			if (v != null){
+				addView(v);
+			}
 		}
 
 		requestLayout();
