@@ -11,6 +11,11 @@
 	<!--Henry Wilcox-->
 	<!--Rick Deckard-->
 
+	<string name="toast_character_saved_successful">Character saved</string>
+	<string name="toast_character_saved_error">Error when saving character</string>
+
+	<!-- Edit character -->
+
 	<string name="section_title_description">About</string>
 	<string name="section_title_aspects">Aspects</string>
 	<string name="section_title_skills">Skills</string>

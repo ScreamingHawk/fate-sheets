@@ -17,6 +17,7 @@ import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterEditSectionAdapter;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CoreCharacter;
+import link.standen.michael.fatesheets.util.CharacterHelper;
 
 public class CoreCharacterEditActivity extends AppCompatActivity {
 
@@ -66,13 +67,16 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("Action", null).show();
+				if (CharacterHelper.saveCoreCharacter(CoreCharacterEditActivity.this, getCharacter())) {
+					Snackbar.make(view, getResources().getString(R.string.toast_character_saved_successful), Snackbar.LENGTH_LONG)
+							.setAction("Action", null).show();
+				} else {
+					Snackbar.make(view, getResources().getString(R.string.toast_character_saved_error), Snackbar.LENGTH_LONG)
+							.setAction("Action", null).show();
+				}
 			}
 		});
-
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -99,6 +103,5 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 	public CoreCharacter getCharacter(){
 		return character;
 	}
-
 
 }
