@@ -19,19 +19,12 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"/>
 
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
-			android:id="@+id/skills_list"
+		<FrameLayout
+			android:id="@+id/skill_container"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+			android:layout_height="wrap_content">
 
-		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
-
-		<ImageButton
-			android:id="@+id/add_skill"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@android:drawable/ic_input_add"/>
+		</FrameLayout>
 	</LinearLayout>
 
 </ScrollView>

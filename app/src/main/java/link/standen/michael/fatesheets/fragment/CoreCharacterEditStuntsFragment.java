@@ -1,6 +1,8 @@
 package link.standen.michael.fatesheets.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,36 +22,78 @@ public class CoreCharacterEditStuntsFragment extends CoreCharacterEditAbstractFr
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.core_character_edit_stunts, container, false);
+		return inflater.inflate(R.layout.core_character_edit_stunts, container, false);
+	}
 
-		final CoreCharacter character = getCharacter();
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		// Stunt
+		Fragment childFragment = new StuntFragment();
+		FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+		transaction.replace(R.id.stunt_container, childFragment).commit();
+		// Extra
+		childFragment = new ExtraFragment();
+		transaction = getChildFragmentManager().beginTransaction();
+		transaction.replace(R.id.extra_container, childFragment).commit();
+	}
 
-		// Stunts
-		final DeletableStringArrayAdapter stuntListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
-				R.layout.core_character_edit_stunts_list_item, getCharacter().getStunts());
-		((AdapterLinearLayout) rootView.findViewById(R.id.stunts_list)).setAdapter(stuntListAdapter);
+	/**
+	 * Class for managing stunts.
+	 */
+	public static class StuntFragment extends CoreCharacterEditAbstractFragment {
 
-		rootView.findViewById(R.id.add_stunt).setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				character.getStunts().add("");
-				stuntListAdapter.notifyDataSetChanged();
-			}
-		});
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+								 Bundle savedInstanceState) {
 
-		// Extras
-		final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
-				R.layout.core_character_edit_extras_list_item, getCharacter().getExtras());
-		((AdapterLinearLayout) rootView.findViewById(R.id.extras_list)).setAdapter(extraListAdapter);
+			final CoreCharacter character = getCharacter();
 
-		rootView.findViewById(R.id.add_extra).setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				character.getExtras().add("");
-				extraListAdapter.notifyDataSetChanged();
-			}
-		});
+			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_stunt, container, false);
 
-		return rootView;
+			// Stunts
+			final DeletableStringArrayAdapter stuntListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+					R.layout.core_character_edit_stunts_list_item, getCharacter().getStunts());
+			((AdapterLinearLayout) rootView.findViewById(R.id.stunts_list)).setAdapter(stuntListAdapter);
+
+			rootView.findViewById(R.id.add_stunt).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					character.getStunts().add("");
+					stuntListAdapter.notifyDataSetChanged();
+				}
+			});
+
+			return rootView;
+		}
+	}
+
+	/**
+	 * Class for managing extras.
+	 */
+	public static class ExtraFragment extends CoreCharacterEditAbstractFragment {
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+								 Bundle savedInstanceState) {
+
+			final CoreCharacter character = getCharacter();
+
+			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_extra, container, false);
+
+			// Extras
+			final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+					R.layout.core_character_edit_extras_list_item, getCharacter().getExtras());
+			((AdapterLinearLayout) rootView.findViewById(R.id.extras_list)).setAdapter(extraListAdapter);
+
+			rootView.findViewById(R.id.add_extra).setOnClickListener(new View.OnClickListener(){
+				@Override
+				public void onClick(View v) {
+					character.getExtras().add("");
+					extraListAdapter.notifyDataSetChanged();
+				}
+			});
+
+			return rootView;
+		}
 	}
 }

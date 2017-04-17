@@ -1,13 +1,13 @@
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-				  xmlns:tools="http://schemas.android.com/tools"
-				  android:layout_width="match_parent"
-				  android:layout_height="match_parent"
-				  android:paddingBottom="@dimen/activity_vertical_margin"
-				  android:paddingLeft="@dimen/activity_horizontal_margin"
-				  android:paddingRight="@dimen/activity_horizontal_margin"
-				  android:paddingTop="@dimen/activity_vertical_margin"
-				  tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="@dimen/activity_vertical_margin"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
+	android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -19,47 +19,19 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"/>
 
-		<TextView
+		<FrameLayout
+			android:id="@+id/stunt_container"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/edit_character_stunts_title"
-			android:background="@color/colorFaded"
-			android:padding="@dimen/section_title_padding"/>
+			android:layout_height="wrap_content">
 
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
-			android:id="@+id/stunts_list"
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/extra_container"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+			android:layout_height="wrap_content">
 
-		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
-
-		<ImageButton
-			android:id="@+id/add_stunt"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@android:drawable/ic_input_add"/>
-
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/edit_character_extras_title"
-			android:background="@color/colorFaded"
-			android:padding="@dimen/section_title_padding"/>
-
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
-			android:id="@+id/extras_list"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
-
-		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
-
-		<ImageButton
-			android:id="@+id/add_extra"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@android:drawable/ic_input_add"/>
+		</FrameLayout>
 
 	</LinearLayout>
 </ScrollView>

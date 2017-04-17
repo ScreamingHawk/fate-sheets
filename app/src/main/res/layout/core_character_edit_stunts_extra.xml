@@ -1,0 +1,30 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_extras_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
+
+	<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+		android:id="@+id/extras_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+	</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+
+	<ImageButton
+		android:id="@+id/add_extra"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@android:drawable/ic_input_add"/>
+
+</LinearLayout>

@@ -1,6 +1,8 @@
 package link.standen.michael.fatesheets.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +25,11 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.core_character_edit_aspects, container, false);
+		return inflater.inflate(R.layout.core_character_edit_aspects, container, false);
+	}
+
+	@Override
+	public void onViewCreated(View rootView, Bundle savedInstanceState) {
 
 		final CoreCharacter character = getCharacter();
 
@@ -48,19 +54,39 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 			}
 		});
 
-		// Aspects
-		final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
-				R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
-		((AdapterLinearLayout) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
+		// Skill
+		Fragment childFragment = new AspectFragment();
+		FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+		transaction.replace(R.id.aspect_container, childFragment).commit();
+	}
 
-		rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				character.getAspects().add("");
-				aspectListAdapter.notifyDataSetChanged();
-			}
-		});
+	/**
+	 * Class for managing aspects.
+	 */
+	public static class AspectFragment extends CoreCharacterEditAbstractFragment {
 
-		return rootView;
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+								 Bundle savedInstanceState) {
+
+			final CoreCharacter character = getCharacter();
+
+			View rootView = inflater.inflate(R.layout.core_character_edit_aspects_aspect, container, false);
+
+			// Aspects
+			final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+					R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
+			((AdapterLinearLayout) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
+
+			rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					character.getAspects().add("");
+					aspectListAdapter.notifyDataSetChanged();
+				}
+			});
+
+			return rootView;
+		}
 	}
 }
