@@ -6,6 +6,13 @@
 	android:orientation="vertical"
 	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditSkillsFragment">
 
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_skills_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
+
 	<link.standen.michael.fatesheets.layout.AdapterLinearLayout
 		android:id="@+id/skills_list"
 		android:layout_width="match_parent"

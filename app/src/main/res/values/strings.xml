@@ -32,6 +32,7 @@
 	<string name="edit_character_extras_title">Extras</string>
 	<!-- Edit character skills -->
 	<string name="edit_character_skill_prompt">Skill</string>
+	<string name="edit_character_skills_title">Skills</string>
 	<string-array name="core_skills">
 		<item></item>
 		<item>Athletics</item>
