@@ -28,6 +28,10 @@
 				android:name="android.support.PARENT_ACTIVITY"
 				android:value="link.standen.michael.fatesheets.activity.CharacterListActivity"/>
 		</activity>
+		<activity android:name=".activity.CreditsActivity"
+				  android:label="@string/title_activity_credits"
+				  android:theme="@style/AppTheme.NoActionBar">
+		</activity>
 	</application>
 
 </manifest>

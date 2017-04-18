@@ -10,4 +10,7 @@
 
 	<dimen name="section_title_padding">2dp</dimen>
 
+	<!-- Credits -->
+	<dimen name="credits_padding">16dp</dimen>
+
 </resources>

@@ -86,7 +86,8 @@ public class CharacterListActivity extends AppCompatActivity {
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_credits) {
+			startActivity(new Intent(this, CreditsActivity.class));
 			return true;
 		}
 
