@@ -1,7 +1,6 @@
 package link.standen.michael.fatesheets.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,10 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
-import link.standen.michael.fatesheets.model.Character;
-import link.standen.michael.fatesheets.model.CharacterViewHolder;
 
 /**
  * Manages a list of deletable strings.
