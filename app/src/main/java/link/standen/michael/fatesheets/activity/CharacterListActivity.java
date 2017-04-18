@@ -39,7 +39,6 @@ public class CharacterListActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 
 		// Initialise list view
-		characters.addAll(CharacterHelper.listCharacterNames(this));
 		listAdapter = new CharacterArrayAdapter(this, R.layout.character_list_list_item, characters);
 		ListView listView = (ListView) findViewById(android.R.id.list);
 		listView.setAdapter(listAdapter);
@@ -54,6 +53,22 @@ public class CharacterListActivity extends AppCompatActivity {
 				CharacterListActivity.this.startActivity(intent);
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		refreshCharacterList();
+	}
+
+	/**
+	 * Refreshes the character list.
+	 */
+	private void refreshCharacterList(){
+		characters.clear();
+		characters.addAll(CharacterHelper.listCharacterNames(this));
+		listAdapter.notifyDataSetChanged();
 	}
 
 	@Override
