@@ -43,12 +43,6 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.core_character_edit_activity);
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-		if (getSupportActionBar() != null) {
-			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		}
-
 		// Store the character
 		String name = (String) getIntent().getSerializableExtra(Character.INTENT_EXTRA_NAME);
 		character = CharacterHelper.getCoreCharacter(this, name);
