@@ -50,7 +50,15 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		}
 
 		// Store the character
-		character = (CoreCharacter) getIntent().getSerializableExtra(Character.INTENT_EXTRA_NAME);
+		String name = (String) getIntent().getSerializableExtra(Character.INTENT_EXTRA_NAME);
+		character = CharacterHelper.getCoreCharacter(this, name);
+		if (character == null){
+			// New
+			if (name == null){
+				name = CharacterHelper.getCharacterDefaultName(this);
+			}
+			character = new CoreCharacter(name);
+		}
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.

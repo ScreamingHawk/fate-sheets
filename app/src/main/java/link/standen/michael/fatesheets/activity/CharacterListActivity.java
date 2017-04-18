@@ -1,5 +1,6 @@
 package link.standen.michael.fatesheets.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ public class CharacterListActivity extends AppCompatActivity {
 
 	private static final String TAG = CharacterListActivity.class.getName();
 
-	private final List<Character> characters;
+	private final List<String> characters;
 	private ArrayAdapter listAdapter;
 
 	public CharacterListActivity() {
@@ -38,6 +39,7 @@ public class CharacterListActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 
 		// Initialise list view
+		characters.addAll(CharacterHelper.listCharacterNames(this));
 		listAdapter = new CharacterArrayAdapter(this, R.layout.character_list_list_item, characters);
 		ListView listView = (ListView) findViewById(android.R.id.list);
 		listView.setAdapter(listAdapter);
@@ -47,13 +49,11 @@ public class CharacterListActivity extends AppCompatActivity {
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				//TODO Create new character by entering data screen
-				characters.add(new CoreCharacter(CharacterHelper.getCharacterDefaultName(CharacterListActivity.this)));
-				listAdapter.notifyDataSetChanged();
+				// Create new character by entering data screen
+				Intent intent = new Intent(CharacterListActivity.this, CoreCharacterEditActivity.class);
+				CharacterListActivity.this.startActivity(intent);
 			}
 		});
-
-		//TODO Get characters from files
 	}
 
 	@Override
