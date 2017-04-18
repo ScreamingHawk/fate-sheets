@@ -1,29 +1,21 @@
 package link.standen.michael.fatesheets.util;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.google.gson.Gson;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CoreCharacter;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A helper class for managing characters
@@ -48,10 +40,10 @@ public final class CharacterHelper {
 	 * Saves the character to local storage.
 	 * @return True if the write operation was successful, false otherwise.
 	 */
-	public static boolean saveCoreCharacter(Activity activity, CoreCharacter character) {
+	public static boolean saveCoreCharacter(Context context, CoreCharacter character) {
 		String json = new Gson().toJson(character);
 		try {
-			FileOutputStream fos = activity.openFileOutput(CORE_PREFIX + character.getName(), Context.MODE_PRIVATE);
+			FileOutputStream fos = context.openFileOutput(CORE_PREFIX + character.getName(), Context.MODE_PRIVATE);
 			fos.write(json.getBytes());
 			fos.close();
 			return true;
@@ -65,7 +57,7 @@ public final class CharacterHelper {
 	 * Get a saved character.
 	 */
 	@Nullable
-	public static CoreCharacter getCoreCharacter(Activity activity, String name) {
+	public static CoreCharacter getCoreCharacter(Context context, String name) {
 		if (name == null) {
 			return null;
 		}
@@ -74,7 +66,7 @@ public final class CharacterHelper {
 		String json = null;
 
 		try {
-			FileInputStream fis = activity.openFileInput(name);
+			FileInputStream fis = context.openFileInput(name);
 
 			StringBuffer stringBuff = new StringBuffer("");
 			byte[] buff = new byte[1024];
@@ -100,10 +92,10 @@ public final class CharacterHelper {
 	/**
 	 * Get a list of all saved characters names.
 	 */
-	public static List<String> listCharacterNames(Activity activity) {
+	public static List<String> listCharacterNames(Context context) {
 		List<String> names = new ArrayList<>();
 
-		for (String name : activity.fileList()){
+		for (String name : context.fileList()){
 			if (name.startsWith(CORE_PREFIX)){
 				names.add(name.replace(CORE_PREFIX, ""));
 			}
