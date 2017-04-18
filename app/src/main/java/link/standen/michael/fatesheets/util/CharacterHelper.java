@@ -103,4 +103,12 @@ public final class CharacterHelper {
 
 		return names;
 	}
+
+	/**
+	 * Deletes a core character with the given name.
+	 * @return True if the delete was successful, false otherwise.
+	 */
+	public static boolean deleteCoreCharacter(Context context, String name) {
+		return context.deleteFile(CORE_PREFIX + name);
+	}
 }

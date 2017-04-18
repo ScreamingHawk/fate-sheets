@@ -14,6 +14,10 @@
 	<string name="toast_character_saved_successful">Character saved</string>
 	<string name="toast_character_saved_error">Error when saving character</string>
 
+	<string name="character_delete_dialog">Are you sure you want to delete %1$s?</string>
+	<string name="toast_character_deleted_successful">Character %1$s deleted</string>
+	<string name="toast_character_deleted_error">Error when deleting character</string>
+
 	<!-- Edit character -->
 
 	<string name="section_title_description">About</string>
