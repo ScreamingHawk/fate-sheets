@@ -5,6 +5,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
@@ -40,6 +41,23 @@ public class CoreCharacterEditDescriptionFragment extends CoreCharacterEditAbstr
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
 				character.setDescription(((TextView)v).getText().toString());
 				return false;
+			}
+		});
+		// Fate Points
+		final TextView fatePoints = (TextView) rootView.findViewById(R.id.fate_points);
+		fatePoints.setText(character.getFatePoints().toString());
+		rootView.findViewById(R.id.fate_points_up).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				character.incrementFatePoints();
+				fatePoints.setText(character.getFatePoints().toString());
+			}
+		});
+		rootView.findViewById(R.id.fate_points_down).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				character.decrementFatePoints();
+				fatePoints.setText(character.getFatePoints().toString());
 			}
 		});
 

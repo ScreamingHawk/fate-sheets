@@ -13,12 +13,14 @@ public abstract class Character implements Serializable {
 
 	private String name;
 	private String description;
+	private Integer fatePoints;
 	private List<String> aspects;
 	private List<String> stunts;
 	private List<Consequence> consequences;
 
 	public Character(String name){
 		this.name = name;
+		fatePoints = 3;
 		aspects = new ArrayList<>();
 		stunts = new ArrayList<>();
 		consequences = new ArrayList<>();
@@ -65,5 +67,20 @@ public abstract class Character implements Serializable {
 
 	public void setConsequences(List<Consequence> consequences) {
 		this.consequences = consequences;
+	}
+
+	public Integer getFatePoints() {
+		return fatePoints;
+	}
+
+	public void setFatePoints(Integer fatePoints) {
+		this.fatePoints = fatePoints;
+	}
+
+	public void incrementFatePoints() {
+		fatePoints++;
+	}
+	public void decrementFatePoints() {
+		fatePoints--;
 	}
 }

@@ -37,6 +37,7 @@
 	<!-- Edit character description -->
 	<string name="edit_character_name_hint">Name</string>
 	<string name="edit_character_description_hint">Description</string>
+	<string name="edit_character_fate_points">Fate Points</string>
 	<!-- Edit character aspects -->
 	<string name="edit_character_high_concept_hint">High Concept</string>
 	<string name="edit_character_trouble_hint">Trouble</string>
