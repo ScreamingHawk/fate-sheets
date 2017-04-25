@@ -1,5 +1,6 @@
 package link.standen.michael.fatesheets.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -95,7 +96,8 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
+		if (id == R.id.action_credits) {
+			startActivity(new Intent(this, CreditsActivity.class));
 			return true;
 		}
 
