@@ -16,6 +16,9 @@
 	<!--Henry Wilcox-->
 	<!--Rick Deckard-->
 
+	<string name="no_characters_title">Welcome to Fate Sheets!</string>
+	<string name="no_characters_text">Please add a character with the button below.</string>
+
 	<string name="toast_character_saved_successful">Character saved</string>
 	<string name="toast_character_saved_error">Error when saving character</string>
 
