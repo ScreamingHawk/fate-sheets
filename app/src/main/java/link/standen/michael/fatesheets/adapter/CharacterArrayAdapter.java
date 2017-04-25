@@ -83,6 +83,7 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 								if (CharacterHelper.deleteCoreCharacter(context, name)) {
 									items.remove(position);
 									CharacterArrayAdapter.this.notifyDataSetChanged();
+									context.checkEmptyCharacterList();
 									Snackbar.make(parent, context.getResources().getString(R.string.toast_character_deleted_successful, name), Snackbar.LENGTH_LONG)
 											.setAction("Action", null).show();
 								} else {

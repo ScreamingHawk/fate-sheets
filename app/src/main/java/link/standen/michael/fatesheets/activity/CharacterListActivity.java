@@ -69,6 +69,18 @@ public class CharacterListActivity extends AppCompatActivity {
 		characters.clear();
 		characters.addAll(CharacterHelper.listCharacterNames(this));
 		listAdapter.notifyDataSetChanged();
+		checkEmptyCharacterList();
+	}
+
+	/**
+	 * Shows or hides the empty list layout as required.
+	 */
+	public void checkEmptyCharacterList(){
+		if (characters.isEmpty()){
+			findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
+		} else {
+			findViewById(android.R.id.empty).setVisibility(View.GONE);
+		}
 	}
 
 	@Override
