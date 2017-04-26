@@ -16,7 +16,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.model.Stress;
 
 /**
@@ -26,11 +25,11 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 
 	private static final String TAG = StressArrayAdapter.class.getName();
 
-	private final CoreCharacterEditActivity context;
+	private final Context context;
 	private final int resourceId;
 	private final List<Stress> items;
 
-	public StressArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<Stress> items) {
+	public StressArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Stress> items) {
 		super(context, resourceId, items);
 
 		this.context = context;

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 
 /**
  * Manages a list of deletable strings.
@@ -23,11 +22,11 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 
 	private static final String TAG = DeletableStringArrayAdapter.class.getName();
 
-	private final CoreCharacterEditActivity context;
+	private final Context context;
 	private final int resourceId;
 	private final List<String> items;
 
-	public DeletableStringArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<String> items) {
+	public DeletableStringArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<String> items) {
 		super(context, resourceId, items);
 
 		this.context = context;

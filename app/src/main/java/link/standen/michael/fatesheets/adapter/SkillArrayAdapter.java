@@ -16,7 +16,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.model.Skill;
 
 /**
@@ -26,11 +25,11 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 
 	private static final String TAG = SkillArrayAdapter.class.getName();
 
-	private final CoreCharacterEditActivity context;
+	private final Context context;
 	private final int resourceId;
 	private final List<Skill> items;
 
-	public SkillArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<Skill> items) {
+	public SkillArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Skill> items) {
 		super(context, resourceId, items);
 
 		this.context = context;

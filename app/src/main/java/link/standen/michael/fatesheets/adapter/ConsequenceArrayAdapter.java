@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.model.Consequence;
 
 /**
@@ -24,11 +23,11 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 
 	private static final String TAG = ConsequenceArrayAdapter.class.getName();
 
-	private final CoreCharacterEditActivity context;
+	private final Context context;
 	private final int resourceId;
 	private final List<Consequence> items;
 
-	public ConsequenceArrayAdapter(@NonNull CoreCharacterEditActivity context, @LayoutRes int resourceId, @NonNull List<Consequence> items) {
+	public ConsequenceArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Consequence> items) {
 		super(context, resourceId, items);
 
 		this.context = context;
