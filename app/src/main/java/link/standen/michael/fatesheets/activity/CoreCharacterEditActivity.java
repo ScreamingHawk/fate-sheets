@@ -5,7 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.adapter.CharacterEditSectionAdapter;
+import link.standen.michael.fatesheets.adapter.CoreCharacterEditSectionAdapter;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 import link.standen.michael.fatesheets.util.CharacterHelper;
@@ -30,7 +29,7 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 	 * may be best to switch to a
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
-	private CharacterEditSectionAdapter mSectionsPagerAdapter;
+	private CoreCharacterEditSectionAdapter mSectionsPagerAdapter;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -57,7 +56,7 @@ public class CoreCharacterEditActivity extends AppCompatActivity {
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the activity.
-		mSectionsPagerAdapter = new CharacterEditSectionAdapter(getSupportFragmentManager(), this);
+		mSectionsPagerAdapter = new CoreCharacterEditSectionAdapter(getSupportFragmentManager(), this);
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.container);

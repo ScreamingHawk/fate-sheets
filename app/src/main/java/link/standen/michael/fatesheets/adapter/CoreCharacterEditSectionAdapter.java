@@ -15,11 +15,11 @@ import link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment;
 /**
  * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections.
  */
-public class CharacterEditSectionAdapter extends FragmentPagerAdapter {
+public class CoreCharacterEditSectionAdapter extends FragmentPagerAdapter {
 
 	private final Context context;
 
-	public CharacterEditSectionAdapter(FragmentManager fm, Context context) {
+	public CoreCharacterEditSectionAdapter(FragmentManager fm, Context context) {
 		super(fm);
 		this.context = context;
 	}
