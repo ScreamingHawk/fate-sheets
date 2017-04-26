@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.Character;
@@ -52,7 +51,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 			}
 		});
 
-		// Skill
+		// Aspects
 		Fragment childFragment = new AspectFragment();
 		FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 		transaction.replace(R.id.aspect_container, childFragment).commit();
@@ -72,7 +71,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 			View rootView = inflater.inflate(R.layout.character_edit_aspects_aspect, container, false);
 
 			// Aspects
-			final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+			final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter(getContext(),
 					R.layout.character_edit_aspects_list_item, getCharacter().getAspects());
 			((AdapterLinearLayout) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
 
