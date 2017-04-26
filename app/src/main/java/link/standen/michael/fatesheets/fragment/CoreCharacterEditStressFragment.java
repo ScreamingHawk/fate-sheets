@@ -115,11 +115,11 @@ public class CoreCharacterEditStressFragment extends CharacterEditAbstractFragme
 
 			final CoreCharacter character = getCoreCharacter();
 
-			View rootView = inflater.inflate(R.layout.core_character_edit_stress_consequence, container, false);
+			View rootView = inflater.inflate(R.layout.character_edit_stress_consequence, container, false);
 
 			// Consequences
 			final ConsequenceArrayAdapter consequenceListAdapter = new ConsequenceArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_consequence_list_item, getCharacter().getConsequences());
+					R.layout.character_edit_consequence_list_item, getCharacter().getConsequences());
 			((AdapterLinearLayout) rootView.findViewById(R.id.consequence_list)).setAdapter(consequenceListAdapter);
 
 			rootView.findViewById(R.id.add_consequence).setOnClickListener(new View.OnClickListener(){

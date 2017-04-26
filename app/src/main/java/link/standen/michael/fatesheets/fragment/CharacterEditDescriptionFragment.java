@@ -18,7 +18,7 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.core_character_edit_description, container, false);
+		View rootView = inflater.inflate(R.layout.character_edit_description, container, false);
 
 		final Character character = getCharacter();
 

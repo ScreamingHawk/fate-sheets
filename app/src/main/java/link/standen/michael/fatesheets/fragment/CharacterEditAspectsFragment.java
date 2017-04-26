@@ -23,7 +23,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.core_character_edit_aspects, container, false);
+		return inflater.inflate(R.layout.character_edit_aspects, container, false);
 	}
 
 	@Override
@@ -69,11 +69,11 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 
 			final Character character = getCharacter();
 
-			View rootView = inflater.inflate(R.layout.core_character_edit_aspects_aspect, container, false);
+			View rootView = inflater.inflate(R.layout.character_edit_aspects_aspect, container, false);
 
 			// Aspects
 			final DeletableStringArrayAdapter aspectListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_aspects_list_item, getCharacter().getAspects());
+					R.layout.character_edit_aspects_list_item, getCharacter().getAspects());
 			((AdapterLinearLayout) rootView.findViewById(R.id.aspect_list)).setAdapter(aspectListAdapter);
 
 			rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener() {
