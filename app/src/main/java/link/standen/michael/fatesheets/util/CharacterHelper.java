@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.activity.FAECharacterEditActivity;
 import link.standen.michael.fatesheets.model.CoreCharacter;
+import link.standen.michael.fatesheets.model.FAECharacter;
 
 /**
  * A helper class for managing characters
@@ -25,6 +27,7 @@ public final class CharacterHelper {
 	private static final String TAG = CharacterHelper.class.getName();
 
 	private static final String CORE_PREFIX = "Core_";
+	private static final String FAE_PREFIX = "FAE_";
 
 	private CharacterHelper(){}
 
@@ -37,13 +40,24 @@ public final class CharacterHelper {
 	}
 
 	/**
-	 * Saves the character to local storage.
+	 * Saves the Core character to local storage.
 	 * @return True if the write operation was successful, false otherwise.
 	 */
 	public static boolean saveCoreCharacter(Context context, CoreCharacter character) {
-		String json = new Gson().toJson(character);
+		return saveCharacter(context, new Gson().toJson(character), CORE_PREFIX + character.getName());
+	}
+
+	/**
+	 * Saves the FAE character to local storage.
+	 * @return True if the write operation was successful, false otherwise.
+	 */
+	public static boolean saveFAECharacter(Context context, FAECharacter character) {
+		return saveCharacter(context, new Gson().toJson(character), FAE_PREFIX + character.getName());
+	}
+
+	private static boolean saveCharacter(Context context, String json, String filename) {
 		try {
-			FileOutputStream fos = context.openFileOutput(CORE_PREFIX + character.getName(), Context.MODE_PRIVATE);
+			FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
 			fos.write(json.getBytes());
 			fos.close();
 			return true;
@@ -54,19 +68,43 @@ public final class CharacterHelper {
 	}
 
 	/**
-	 * Get a saved character.
+	 * Get a saved Core character.
 	 */
 	@Nullable
 	public static CoreCharacter getCoreCharacter(Context context, String name) {
 		if (name == null) {
 			return null;
 		}
-		name = CORE_PREFIX + name;
+		String json = getJsonFromFile(context, CORE_PREFIX + name);
 
+		if (json == null) {
+			return null;
+		}
+		return new Gson().fromJson(json, CoreCharacter.class);
+	}
+
+	/**
+	 * Get a saved FAE character.
+	 */
+	@Nullable
+	public static FAECharacter getFAECharacter(Context context, String name) {
+		if (name == null) {
+			return null;
+		}
+		String json = getJsonFromFile(context, FAE_PREFIX + name);
+
+		if (json == null) {
+			return null;
+		}
+		return new Gson().fromJson(json, FAECharacter.class);
+	}
+
+	@Nullable
+	private static String getJsonFromFile(Context context, String filename){
 		String json = null;
 
 		try {
-			FileInputStream fis = context.openFileInput(name);
+			FileInputStream fis = context.openFileInput(filename);
 
 			StringBuffer stringBuff = new StringBuffer("");
 			byte[] buff = new byte[1024];
@@ -78,15 +116,12 @@ public final class CharacterHelper {
 
 			json = stringBuff.toString();
 		} catch (FileNotFoundException e) {
-			Log.e(TAG, String.format("Character %s file not found", name), e);
+			Log.e(TAG, String.format("Character file %s not found", filename), e);
 		} catch (IOException e) {
-			Log.e(TAG, String.format("Error reading file %s", name), e);
+			Log.e(TAG, String.format("Error reading file %s", filename), e);
 		}
 
-		if (json == null) {
-			return null;
-		}
-		return new Gson().fromJson(json, CoreCharacter.class);
+		return json;
 	}
 
 	/**
@@ -98,6 +133,8 @@ public final class CharacterHelper {
 		for (String name : context.fileList()){
 			if (name.startsWith(CORE_PREFIX)){
 				names.add(name.replace(CORE_PREFIX, ""));
+			} else if (name.startsWith(FAE_PREFIX)){
+				names.add(name.replace(FAE_PREFIX, ""));
 			}
 		}
 
@@ -111,4 +148,13 @@ public final class CharacterHelper {
 	public static boolean deleteCoreCharacter(Context context, String name) {
 		return context.deleteFile(CORE_PREFIX + name);
 	}
+
+	/**
+	 * Deletes a core character with the given name.
+	 * @return True if the delete was successful, false otherwise.
+	 */
+	public static boolean deleteFAECharacter(Context context, String name) {
+		return context.deleteFile(FAE_PREFIX + name);
+	}
+
 }

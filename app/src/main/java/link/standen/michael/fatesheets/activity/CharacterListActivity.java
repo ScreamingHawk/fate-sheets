@@ -17,8 +17,6 @@ import java.util.List;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.CharacterArrayAdapter;
 import link.standen.michael.fatesheets.util.CharacterHelper;
-import link.standen.michael.fatesheets.model.Character;
-import link.standen.michael.fatesheets.model.CoreCharacter;
 
 public class CharacterListActivity extends AppCompatActivity {
 
@@ -49,7 +47,7 @@ public class CharacterListActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				// Create new character by entering data screen
-				Intent intent = new Intent(CharacterListActivity.this, CoreCharacterEditActivity.class);
+				Intent intent = new Intent(CharacterListActivity.this, FAECharacterEditActivity.class);
 				CharacterListActivity.this.startActivity(intent);
 			}
 		});

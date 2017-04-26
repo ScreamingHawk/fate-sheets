@@ -19,6 +19,7 @@ import java.util.List;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.activity.FAECharacterEditActivity;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.util.CharacterHelper;
 
@@ -63,7 +64,7 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 		view.findViewById(R.id.edit_character).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(context, CoreCharacterEditActivity.class);
+				Intent intent = new Intent(context, FAECharacterEditActivity.class);
 				intent.putExtra(Character.INTENT_EXTRA_NAME, name);
 				context.startActivity(intent);
 			}
@@ -80,7 +81,7 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								// Do the delete
-								if (CharacterHelper.deleteCoreCharacter(context, name)) {
+								if (CharacterHelper.deleteFAECharacter(context, name)) {
 									items.remove(position);
 									CharacterArrayAdapter.this.notifyDataSetChanged();
 									context.checkEmptyCharacterList();

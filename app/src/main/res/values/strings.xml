@@ -34,6 +34,7 @@
 	<string name="section_title_description">About</string>
 	<string name="section_title_aspects">Aspects</string>
 	<string name="section_title_skills">Skills</string>
+	<string name="section_title_approaches">Approaches</string>
 	<string name="section_title_stunts">Stunts</string>
 	<string name="section_title_stress">Stress</string>
 
@@ -75,12 +76,25 @@
 		<item>Stealth</item>
 		<item>Will</item>
 	</string-array>
+	<!-- Edit character approaches -->
+	<string name="edit_character_approach_prompt">Approach</string>
+	<string name="edit_character_approaches_title">Approaches</string>
+	<string-array name="fae_approaches">
+		<item></item>
+		<item>Careful</item>
+		<item>Clever</item>
+		<item>Flashy</item>
+		<item>Forceful</item>
+		<item>Quick</item>
+		<item>Sneaky</item>
+	</string-array>
 	<!-- Edit character stress -->
 	<string name="edit_character_consequence_hint">Consequence</string>
 	<string name="edit_character_consequence_mild_hint">Mild</string>
 	<string name="edit_character_consequence_moderate_hint">Moderate</string>
 	<string name="edit_character_consequence_severe_hint">Severe</string>
 
+	<string name="edit_character_stress_title">Stress</string>
 	<string name="edit_character_mental_stress_title">Mental Stress</string>
 	<string name="edit_character_physical_stress_title">Physical Stress</string>
 	<string name="edit_character_consequences_title">Consequences</string>

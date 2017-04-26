@@ -21,7 +21,9 @@ public class FAECharacter extends Character {
 		// Init each approach
 		if (context != null) {
 			for (String approach : context.getResources().getStringArray(R.array.fae_approaches)) {
-				approaches.add(new Approach(approach));
+				if (!approach.isEmpty()) {
+					approaches.add(new Approach(approach));
+				}
 			}
 		}
 		// Init stress
@@ -29,6 +31,14 @@ public class FAECharacter extends Character {
 		stress.add(new Stress(1));
 		stress.add(new Stress(2));
 		stress.add(new Stress(3));
+	}
+
+	public List<Approach> getApproaches() {
+		return approaches;
+	}
+
+	public void setApproaches(List<Approach> approaches) {
+		this.approaches = approaches;
 	}
 
 	public List<Stress> getStress() {
