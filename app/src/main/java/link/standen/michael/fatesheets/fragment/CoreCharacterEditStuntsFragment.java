@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
@@ -17,7 +16,7 @@ import link.standen.michael.fatesheets.model.CoreCharacter;
 /**
  * A fragment for managing a characters stunts.
  */
-public class CoreCharacterEditStuntsFragment extends CoreCharacterEditAbstractFragment {
+public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,13 +39,13 @@ public class CoreCharacterEditStuntsFragment extends CoreCharacterEditAbstractFr
 	/**
 	 * Class for managing stunts.
 	 */
-	public static class StuntFragment extends CoreCharacterEditAbstractFragment {
+	public static class StuntFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_stunt, container, false);
 
@@ -70,19 +69,19 @@ public class CoreCharacterEditStuntsFragment extends CoreCharacterEditAbstractFr
 	/**
 	 * Class for managing extras.
 	 */
-	public static class ExtraFragment extends CoreCharacterEditAbstractFragment {
+	public static class ExtraFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_extra, container, false);
 
 			// Extras
 			final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_extras_list_item, getCharacter().getExtras());
+					R.layout.core_character_edit_extras_list_item, character.getExtras());
 			((AdapterLinearLayout) rootView.findViewById(R.id.extras_list)).setAdapter(extraListAdapter);
 
 			rootView.findViewById(R.id.add_extra).setOnClickListener(new View.OnClickListener(){

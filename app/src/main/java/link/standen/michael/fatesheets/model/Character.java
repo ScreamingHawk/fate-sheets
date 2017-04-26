@@ -14,6 +14,8 @@ public abstract class Character implements Serializable {
 	private String name;
 	private String description;
 	private Integer fatePoints;
+	private String highConcept;
+	private String trouble;
 	private List<String> aspects;
 	private List<String> stunts;
 	private List<Consequence> consequences;
@@ -43,6 +45,22 @@ public abstract class Character implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getHighConcept() {
+		return highConcept;
+	}
+
+	public void setHighConcept(String highConcept) {
+		this.highConcept = highConcept;
+	}
+
+	public String getTrouble() {
+		return trouble;
+	}
+
+	public void setTrouble(String trouble) {
+		this.trouble = trouble;
 	}
 
 	public List<String> getAspects() {
@@ -83,4 +101,5 @@ public abstract class Character implements Serializable {
 	public void decrementFatePoints() {
 		fatePoints--;
 	}
+
 }

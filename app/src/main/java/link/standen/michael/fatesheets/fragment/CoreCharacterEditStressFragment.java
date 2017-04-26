@@ -19,7 +19,7 @@ import link.standen.michael.fatesheets.model.Stress;
 /**
  * A fragment for managing a characters stress.
  */
-public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFragment {
+public class CoreCharacterEditStressFragment extends CharacterEditAbstractFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,19 +46,19 @@ public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFr
 	/**
 	 * Class for managing physical stress.
 	 */
-	public static class PhysicalStressFragment extends CoreCharacterEditAbstractFragment {
+	public static class PhysicalStressFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stress_physical, container, false);
 
 			// Physical Stress
 			final StressArrayAdapter physicalStressListAdapter = new StressArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_stress_list_item, getCharacter().getPhysicalStress());
+					R.layout.core_character_edit_stress_list_item, character.getPhysicalStress());
 			((AdapterLinearLayout) rootView.findViewById(R.id.physical_stress_list)).setAdapter(physicalStressListAdapter);
 
 			rootView.findViewById(R.id.add_physical_stress).setOnClickListener(new View.OnClickListener(){
@@ -77,18 +77,18 @@ public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFr
 	/**
 	 * Class for managing mental stress.
 	 */
-	public static class MentalStressFragment extends CoreCharacterEditAbstractFragment {
+	public static class MentalStressFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stress_mental, container, false);
 
 			final StressArrayAdapter mentalStressListAdapter = new StressArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_stress_list_item, getCharacter().getMentalStress());
+					R.layout.core_character_edit_stress_list_item, character.getMentalStress());
 			((AdapterLinearLayout) rootView.findViewById(R.id.mental_stress_list)).setAdapter(mentalStressListAdapter);
 
 			rootView.findViewById(R.id.add_mental_stress).setOnClickListener(new View.OnClickListener() {
@@ -107,13 +107,13 @@ public class CoreCharacterEditStressFragment extends CoreCharacterEditAbstractFr
 	/**
 	 * Class for managing consequences.
 	 */
-	public static class ConsequenceFragment extends CoreCharacterEditAbstractFragment {
+	public static class ConsequenceFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stress_consequence, container, false);
 

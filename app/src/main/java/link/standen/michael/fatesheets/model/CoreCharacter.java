@@ -9,8 +9,6 @@ import java.util.List;
 
 public class CoreCharacter extends Character {
 
-	private String highConcept;
-	private String trouble;
 	private List<Skill> skills;
 	private List<String> extras;
 	private List<Stress> physicalStress;
@@ -33,22 +31,6 @@ public class CoreCharacter extends Character {
 		mentalStress = new ArrayList<>();
 		mentalStress.add(new Stress(1));
 		mentalStress.add(new Stress(2));
-	}
-
-	public String getHighConcept() {
-		return highConcept;
-	}
-
-	public void setHighConcept(String highConcept) {
-		this.highConcept = highConcept;
-	}
-
-	public String getTrouble() {
-		return trouble;
-	}
-
-	public void setTrouble(String trouble) {
-		this.trouble = trouble;
 	}
 
 	public List<Skill> getSkills() {

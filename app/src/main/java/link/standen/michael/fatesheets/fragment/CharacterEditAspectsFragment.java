@@ -7,20 +7,18 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
-import link.standen.michael.fatesheets.model.CoreCharacter;
+import link.standen.michael.fatesheets.model.Character;
 
 /**
  * A fragment for managing a characters aspects.
  */
-public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractFragment {
+public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +29,7 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 	@Override
 	public void onViewCreated(View rootView, Bundle savedInstanceState) {
 
-		final CoreCharacter character = getCharacter();
+		final Character character = getCharacter();
 
 		// High Concept
 		TextView view = (TextView) rootView.findViewById(R.id.high_concept);
@@ -63,13 +61,13 @@ public class CoreCharacterEditAspectsFragment extends CoreCharacterEditAbstractF
 	/**
 	 * Class for managing aspects.
 	 */
-	public static class AspectFragment extends CoreCharacterEditAbstractFragment {
+	public static class AspectFragment extends CharacterEditAbstractFragment {
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCharacter();
+			final Character character = getCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_aspects_aspect, container, false);
 

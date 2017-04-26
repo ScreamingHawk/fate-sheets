@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.fragment.CoreCharacterEditAspectsFragment;
-import link.standen.michael.fatesheets.fragment.CoreCharacterEditDescriptionFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditAspectsFragment;
+import link.standen.michael.fatesheets.fragment.CharacterEditDescriptionFragment;
 import link.standen.michael.fatesheets.fragment.CoreCharacterEditSkillsFragment;
 import link.standen.michael.fatesheets.fragment.CoreCharacterEditStressFragment;
 import link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment;
@@ -30,9 +30,9 @@ public class CoreCharacterEditSectionAdapter extends FragmentPagerAdapter {
 		// Return a PlaceholderFragment (defined as a static inner class below).
 		switch (position) {
 			case 0:
-				return new CoreCharacterEditDescriptionFragment();
+				return new CharacterEditDescriptionFragment();
 			case 1:
-				return new CoreCharacterEditAspectsFragment();
+				return new CharacterEditAspectsFragment();
 			case 2:
 				return new CoreCharacterEditSkillsFragment();
 			case 3:

@@ -5,23 +5,22 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.model.CoreCharacter;
+import link.standen.michael.fatesheets.model.Character;
 
 /**
  * A fragment for managing a characters description.
  */
-public class CoreCharacterEditDescriptionFragment extends CoreCharacterEditAbstractFragment {
+public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.core_character_edit_description, container, false);
 
-		final CoreCharacter character = getCharacter();
+		final Character character = getCharacter();
 
 		// Name
 		TextView view = (TextView) rootView.findViewById(R.id.name);
