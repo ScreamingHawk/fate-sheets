@@ -26,6 +26,11 @@
 	<string name="toast_character_deleted_successful">Character %1$s deleted</string>
 	<string name="toast_character_deleted_error">Error when deleting character</string>
 
+	<string name="select_sheet_type">Select Sheet Type</string>
+	<string name="fate_core">Fate Core</string>
+	<string name="fate_accelerated_edition">Fate Accelerated Edition</string>
+	<string name="toast_sheet_select_error">Error creating sheet</string>
+
 
 	<!-- Edit character -->
 
