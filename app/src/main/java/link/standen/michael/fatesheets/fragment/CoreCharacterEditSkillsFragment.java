@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.SkillArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.CoreCharacter;
@@ -47,7 +46,7 @@ public class CoreCharacterEditSkillsFragment extends CharacterEditAbstractFragme
 			View rootView = inflater.inflate(R.layout.core_character_edit_skills_skill, container, false);
 
 			// Skills
-			final SkillArrayAdapter skillListAdapter = new SkillArrayAdapter((CoreCharacterEditActivity) getContext(),
+			final SkillArrayAdapter skillListAdapter = new SkillArrayAdapter(getContext(),
 					R.layout.core_character_edit_skills_list_item, character.getSkills());
 			((AdapterLinearLayout) rootView.findViewById(R.id.skills_list)).setAdapter(skillListAdapter);
 

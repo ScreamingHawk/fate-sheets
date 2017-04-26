@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * A Fate Core character.
  */
-
 public class CoreCharacter extends Character {
 
 	private List<Skill> skills;

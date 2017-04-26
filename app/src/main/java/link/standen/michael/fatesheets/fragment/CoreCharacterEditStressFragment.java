@@ -58,7 +58,7 @@ public class CoreCharacterEditStressFragment extends CharacterEditAbstractFragme
 
 			// Physical Stress
 			final StressArrayAdapter physicalStressListAdapter = new StressArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_stress_list_item, character.getPhysicalStress());
+					R.layout.character_edit_stress_list_item, character.getPhysicalStress());
 			((AdapterLinearLayout) rootView.findViewById(R.id.physical_stress_list)).setAdapter(physicalStressListAdapter);
 
 			rootView.findViewById(R.id.add_physical_stress).setOnClickListener(new View.OnClickListener(){
@@ -88,7 +88,7 @@ public class CoreCharacterEditStressFragment extends CharacterEditAbstractFragme
 			View rootView = inflater.inflate(R.layout.core_character_edit_stress_mental, container, false);
 
 			final StressArrayAdapter mentalStressListAdapter = new StressArrayAdapter((CoreCharacterEditActivity) getContext(),
-					R.layout.core_character_edit_stress_list_item, character.getMentalStress());
+					R.layout.character_edit_stress_list_item, character.getMentalStress());
 			((AdapterLinearLayout) rootView.findViewById(R.id.mental_stress_list)).setAdapter(mentalStressListAdapter);
 
 			rootView.findViewById(R.id.add_mental_stress).setOnClickListener(new View.OnClickListener() {

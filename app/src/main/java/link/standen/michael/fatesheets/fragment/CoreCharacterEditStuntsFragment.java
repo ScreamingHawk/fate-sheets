@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.CoreCharacterEditActivity;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.CoreCharacter;
@@ -50,7 +49,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 			View rootView = inflater.inflate(R.layout.character_edit_stunts_stunt, container, false);
 
 			// Stunts
-			final DeletableStringArrayAdapter stuntListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+			final DeletableStringArrayAdapter stuntListAdapter = new DeletableStringArrayAdapter(getContext(),
 					R.layout.character_edit_stunts_list_item, getCharacter().getStunts());
 			((AdapterLinearLayout) rootView.findViewById(R.id.stunts_list)).setAdapter(stuntListAdapter);
 
@@ -80,7 +79,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_extra, container, false);
 
 			// Extras
-			final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter((CoreCharacterEditActivity) getContext(),
+			final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter(getContext(),
 					R.layout.core_character_edit_extras_list_item, character.getExtras());
 			((AdapterLinearLayout) rootView.findViewById(R.id.extras_list)).setAdapter(extraListAdapter);
 
