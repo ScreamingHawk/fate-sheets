@@ -3,6 +3,7 @@ package link.standen.michael.fatesheets.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -134,6 +135,9 @@ public class CharacterListActivity extends AppCompatActivity {
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_credits) {
 			startActivity(new Intent(this, CreditsActivity.class));
+			return true;
+		} else if (id == R.id.action_docs) {
+			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://fate-srd.com/")));
 			return true;
 		}
 

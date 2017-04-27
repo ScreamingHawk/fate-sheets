@@ -3,8 +3,14 @@
 	  xmlns:tools="http://schemas.android.com/tools"
 	  tools:context="link.standen.michael.fatesheets.activity.CoreCharacterEditActivity">
 	<item
-		android:id="@+id/action_credits"
+		android:id="@+id/action_docs"
 		android:orderInCategory="100"
+		android:name="@string/action_docs"
+		android:title="@string/action_docs"
+		app:showAsAction="never"/>
+	<item
+		android:id="@+id/action_credits"
+		android:orderInCategory="200"
 		android:name="@string/action_credits"
 		android:title="@string/action_credits"
 		app:showAsAction="never"/>

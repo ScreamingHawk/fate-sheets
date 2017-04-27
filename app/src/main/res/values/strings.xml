@@ -6,6 +6,9 @@
 
 <resources>
 	<string name="app_name">&appname;</string>
+
+	<!-- Menus -->
+	<string name="action_docs">Rules / Docs</string>
 	<string name="action_settings">Settings</string>
 	<string name="action_credits">Credits</string>
 
