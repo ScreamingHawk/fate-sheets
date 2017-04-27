@@ -30,6 +30,7 @@
 	<string name="fate_core">Fate Core</string>
 	<string name="fate_accelerated_edition">Fate Accelerated Edition</string>
 	<string name="toast_sheet_select_error">Error creating sheet</string>
+	<string name="toast_sheet_open_error">Error opening sheet</string>
 
 
 	<!-- Edit character -->

@@ -127,6 +127,22 @@ public final class CharacterHelper {
 	/**
 	 * Get a list of all saved characters names.
 	 */
+	public static List<String> listCharacterFileNames(Context context) {
+		List<String> names = new ArrayList<>();
+
+		for (String name : context.fileList()){
+			if (name.startsWith(CORE_PREFIX) ||
+					name.startsWith(FAE_PREFIX)){
+				names.add(name);
+			}
+		}
+
+		return names;
+	}
+
+	/**
+	 * Get a list of all saved characters names.
+	 */
 	public static List<String> listCharacterNames(Context context) {
 		List<String> names = new ArrayList<>();
 
@@ -139,6 +155,27 @@ public final class CharacterHelper {
 		}
 
 		return names;
+	}
+
+	/**
+	 * Gets the characters name from the filename by stripping the prefix.
+	 * @return The characters name if prefixed correctly, null otherwise.
+	 */
+	public static String getCharacterNameFromFilename(String filename){
+		if (filename.startsWith(CORE_PREFIX)){
+			return filename.replace(CORE_PREFIX, "");
+		} else if (filename.startsWith(FAE_PREFIX)){
+			return filename.replace(FAE_PREFIX, "");
+		}
+		return null;
+	}
+
+	public static boolean filenameIsCore(String filename){
+		return filename.startsWith(CORE_PREFIX);
+	}
+
+	public static boolean filenameIsFAE(String filename){
+		return filename.startsWith(FAE_PREFIX);
 	}
 
 	/**
@@ -155,6 +192,14 @@ public final class CharacterHelper {
 	 */
 	public static boolean deleteFAECharacter(Context context, String name) {
 		return context.deleteFile(FAE_PREFIX + name);
+	}
+
+	/**
+	 * Deletes a character that already has the correctly prefixed filename.
+	 * @return True if the delete was successful, false otherwise.
+	 */
+	public static boolean deleteCharacterFile(Context context, String filename) {
+		return context.deleteFile(filename);
 	}
 
 }
