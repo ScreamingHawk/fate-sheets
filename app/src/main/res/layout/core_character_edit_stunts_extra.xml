@@ -6,6 +6,11 @@
 	android:orientation="vertical"
 	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStuntsFragment">
 
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorDivider"/>
+
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -13,18 +18,34 @@
 		android:background="@color/colorFaded"
 		android:padding="@dimen/section_title_padding"/>
 
-	<link.standen.michael.fatesheets.layout.AdapterLinearLayout
-		android:id="@+id/extras_list"
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorDivider"/>
+
+	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="vertical"
+		android:paddingLeft="@dimen/activity_horizontal_margin"
+		android:paddingRight="@dimen/activity_horizontal_margin">
 
-	</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+			android:id="@+id/extras_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
 
-	<ImageButton
-		android:id="@+id/add_extra"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_input_add"/>
+		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+
+		<ImageButton
+			android:id="@+id/add_extra"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/ic_add_black_24dp"
+			android:background="?selectableItemBackgroundBorderless"
+			android:padding="@dimen/activity_vertical_margin"/>
+
+	</LinearLayout>
 
 </LinearLayout>
