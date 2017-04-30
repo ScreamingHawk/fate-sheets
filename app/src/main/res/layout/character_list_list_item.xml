@@ -4,6 +4,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:paddingLeft="@dimen/activity_horizontal_margin"
+	android:paddingRight="@dimen/activity_horizontal_margin"
 	tools:context="link.standen.michael.fatesheets.activity.CharacterListActivity">
 
 	<TextView
@@ -20,14 +22,18 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/delete_character"
-		android:src="@android:drawable/ic_delete"
-		android:layout_alignParentEnd="true"/>
+		android:layout_alignParentEnd="true"
+		android:src="@drawable/ic_clear_black_24dp"
+		android:background="?selectableItemBackgroundBorderless"
+		android:padding="@dimen/activity_vertical_margin"/>
 
 	<ImageButton
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/edit_character"
-		android:src="@android:drawable/ic_menu_edit"
-		android:layout_toLeftOf="@id/delete_character"/>
+		android:layout_toLeftOf="@id/delete_character"
+		android:src="@drawable/ic_edit_black_24dp"
+		android:background="?selectableItemBackgroundBorderless"
+		android:padding="@dimen/activity_vertical_margin"/>
 
 </RelativeLayout>
