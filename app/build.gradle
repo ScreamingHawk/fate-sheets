@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 25
-	buildToolsVersion "25.0.2"
+	buildToolsVersion "26-rc1"
 	defaultConfig {
 		applicationId "link.standen.michael.fatesheets"
 		minSdkVersion 19
-		targetSdkVersion 25
+		targetSdkVersion 26
 		versionCode 2
 		versionName "0.2"
 	}

@@ -19,8 +19,10 @@
 		android:id="@+id/delete"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:src="@android:drawable/ic_delete"
-		android:layout_alignParentEnd="true"/>
+		android:src="@drawable/ic_clear_black_24dp"
+		android:layout_alignParentEnd="true"
+		android:background="?selectableItemBackgroundBorderless"
+		android:padding="@dimen/activity_vertical_margin"/>
 
 	<EditText
 		android:id="@+id/description"

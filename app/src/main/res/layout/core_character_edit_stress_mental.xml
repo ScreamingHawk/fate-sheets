@@ -6,25 +6,37 @@
 	android:orientation="vertical"
 	tools:context="link.standen.michael.fatesheets.fragment.CoreCharacterEditStressFragment">
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/edit_character_mental_stress_title"
-			android:background="@color/colorFaded"
-			android:padding="@dimen/section_title_padding"/>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorDivider"/>
 
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
-			android:id="@+id/mental_stress_list"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="vertical">
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/edit_character_mental_stress_title"
+		android:background="@color/colorFaded"
+		android:padding="@dimen/section_title_padding"/>
 
-		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/colorDivider"/>
 
-		<ImageButton
-			android:id="@+id/add_mental_stress"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@android:drawable/ic_input_add"/>
+	<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+		android:id="@+id/mental_stress_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+	</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+
+	<ImageButton
+		android:id="@+id/add_mental_stress"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/ic_add_black_24dp"
+		android:background="?selectableItemBackgroundBorderless"
+		android:padding="@dimen/activity_vertical_margin"/>
 
 </LinearLayout>

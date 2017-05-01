@@ -3,9 +3,6 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
 			android:paddingBottom="@dimen/activity_vertical_margin"
-			android:paddingLeft="@dimen/activity_horizontal_margin"
-			android:paddingRight="@dimen/activity_horizontal_margin"
-			android:paddingTop="@dimen/activity_vertical_margin"
 			tools:context="link.standen.michael.fatesheets.fragment.CharacterEditDescriptionFragment">
 
 	<LinearLayout
@@ -13,24 +10,39 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-		<TextView
-			android:id="@+id/section_label"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
-
-		<EditText
-			android:id="@+id/name"
+		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:hint="@string/edit_character_name_hint"/>
+			android:orientation="vertical"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin">
 
-		<EditText
-			android:id="@+id/description"
+			<TextView
+				android:id="@+id/section_label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+			<EditText
+				android:id="@+id/name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="@string/edit_character_name_hint"/>
+
+			<EditText
+				android:id="@+id/description"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:minLines="2"
+				android:gravity="bottom"
+				android:hint="@string/edit_character_description_hint"/>
+
+		</LinearLayout>
+
+
+		<View
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:minLines="2"
-			android:gravity="bottom"
-			android:hint="@string/edit_character_description_hint"/>
+			android:layout_height="1dp"
+			android:background="@color/colorDivider"/>
 
 		<TextView
 			android:layout_width="match_parent"
@@ -39,34 +51,49 @@
 			android:background="@color/colorFaded"
 			android:padding="@dimen/section_title_padding"/>
 
-		<RelativeLayout
+		<View
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content">
+			android:layout_height="1dp"
+			android:background="@color/colorDivider"/>
 
-			<Button
-				android:id="@+id/fate_points_down"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="-"
-				android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-				android:layout_alignParentStart="true"/>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingLeft="@dimen/activity_horizontal_margin"
+			android:paddingRight="@dimen/activity_horizontal_margin">
 
-			<TextView
-				android:id="@+id/fate_points"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-				android:layout_centerHorizontal="true"
-				android:layout_centerVertical="true"/>
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
 
-			<Button
-				android:id="@+id/fate_points_up"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="+"
-				android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-				android:layout_alignParentEnd="true"/>
-		</RelativeLayout>
+				<ImageButton
+					android:id="@+id/fate_points_down"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentStart="true"
+					android:src="@drawable/ic_remove_black_24dp"
+					android:background="?selectableItemBackgroundBorderless"
+					android:padding="@dimen/activity_vertical_margin"/>
+
+				<TextView
+					android:id="@+id/fate_points"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+					android:layout_centerHorizontal="true"
+					android:layout_centerVertical="true"/>
+
+				<ImageButton
+					android:id="@+id/fate_points_up"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:src="@drawable/ic_add_black_24dp"
+					android:background="?selectableItemBackgroundBorderless"
+					android:padding="@dimen/activity_vertical_margin"/>
+			</RelativeLayout>
+
+		</LinearLayout>
 
 	</LinearLayout>
 </ScrollView>
