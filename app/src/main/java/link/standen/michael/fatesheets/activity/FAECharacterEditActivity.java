@@ -14,7 +14,7 @@ import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.FAECharacter;
 import link.standen.michael.fatesheets.util.CharacterHelper;
 
-public class FAECharacterEditActivity extends CharacterEditActivity {
+public class FAECharacterEditActivity extends SharedMenuActivity implements CharacterEditActivity {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
