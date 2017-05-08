@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.Random;
-
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.util.DiceClickListener;
 

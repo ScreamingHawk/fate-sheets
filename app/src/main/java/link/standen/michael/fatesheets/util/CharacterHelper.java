@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.activity.FAECharacterEditActivity;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 import link.standen.michael.fatesheets.model.FAECharacter;
 
