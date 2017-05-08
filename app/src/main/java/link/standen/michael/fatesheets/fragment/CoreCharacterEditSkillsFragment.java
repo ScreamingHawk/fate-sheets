@@ -41,7 +41,7 @@ public class CoreCharacterEditSkillsFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCoreCharacter();
+			CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_skills_skill, container, false);
 
@@ -53,7 +53,7 @@ public class CoreCharacterEditSkillsFragment extends CharacterEditAbstractFragme
 			rootView.findViewById(R.id.add_skill).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					character.getSkills().add(new Skill(null, ""));
+					getCoreCharacter().getSkills().add(new Skill(null, ""));
 					skillListAdapter.notifyDataSetChanged();
 				}
 			});

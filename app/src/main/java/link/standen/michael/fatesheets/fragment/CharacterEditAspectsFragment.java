@@ -28,7 +28,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 	@Override
 	public void onViewCreated(View rootView, Bundle savedInstanceState) {
 
-		final Character character = getCharacter();
+		Character character = getCharacter();
 
 		// High Concept
 		TextView view = (TextView) rootView.findViewById(R.id.high_concept);
@@ -36,7 +36,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				character.setHighConcept(((TextView)v).getText().toString());
+				getCharacter().setHighConcept(((TextView)v).getText().toString());
 				return false;
 			}
 		});
@@ -46,7 +46,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				character.setTrouble(((TextView)v).getText().toString());
+				getCharacter().setTrouble(((TextView)v).getText().toString());
 				return false;
 			}
 		});
@@ -66,8 +66,6 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final Character character = getCharacter();
-
 			View rootView = inflater.inflate(R.layout.character_edit_aspects_aspect, container, false);
 
 			// Aspects
@@ -78,7 +76,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 			rootView.findViewById(R.id.add_aspect).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					character.getAspects().add("");
+					getCharacter().getAspects().add("");
 					aspectListAdapter.notifyDataSetChanged();
 				}
 			});

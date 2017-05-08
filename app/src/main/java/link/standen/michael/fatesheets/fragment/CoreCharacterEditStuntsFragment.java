@@ -44,7 +44,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCoreCharacter();
+			CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.character_edit_stunts_stunt, container, false);
 
@@ -56,7 +56,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 			rootView.findViewById(R.id.add_stunt).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					character.getStunts().add("");
+					getCoreCharacter().getStunts().add("");
 					stuntListAdapter.notifyDataSetChanged();
 				}
 			});
@@ -74,7 +74,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final CoreCharacter character = getCoreCharacter();
+			CoreCharacter character = getCoreCharacter();
 
 			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_extra, container, false);
 
@@ -86,7 +86,7 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 			rootView.findViewById(R.id.add_extra).setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v) {
-					character.getExtras().add("");
+					getCoreCharacter().getExtras().add("");
 					extraListAdapter.notifyDataSetChanged();
 				}
 			});

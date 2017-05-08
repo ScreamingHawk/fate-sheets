@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
-import link.standen.michael.fatesheets.model.Character;
 
 /**
  * A fragment for managing a characters stunts.
@@ -40,8 +39,6 @@ public class FAECharacterEditStuntsFragment extends CharacterEditAbstractFragmen
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final Character character = getCharacter();
-
 			View rootView = inflater.inflate(R.layout.character_edit_stunts_stunt, container, false);
 
 			// Stunts
@@ -52,7 +49,7 @@ public class FAECharacterEditStuntsFragment extends CharacterEditAbstractFragmen
 			rootView.findViewById(R.id.add_stunt).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					character.getStunts().add("");
+					getCharacter().getStunts().add("");
 					stuntListAdapter.notifyDataSetChanged();
 				}
 			});

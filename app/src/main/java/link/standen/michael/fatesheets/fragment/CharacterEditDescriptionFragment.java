@@ -20,7 +20,7 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 							 Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.character_edit_description, container, false);
 
-		final Character character = getCharacter();
+		Character character = getCharacter();
 
 		// Name
 		TextView view = (TextView) rootView.findViewById(R.id.name);
@@ -28,7 +28,7 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				character.setName(((TextView)v).getText().toString());
+				getCharacter().setName(((TextView)v).getText().toString());
 				return false;
 			}
 		});
@@ -38,7 +38,7 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 		view.setOnKeyListener(new View.OnKeyListener(){
 			@Override
 			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				character.setDescription(((TextView)v).getText().toString());
+				getCharacter().setDescription(((TextView)v).getText().toString());
 				return false;
 			}
 		});
@@ -48,15 +48,15 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 		rootView.findViewById(R.id.fate_points_up).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				character.incrementFatePoints();
-				fatePoints.setText(character.getFatePoints().toString());
+				getCharacter().incrementFatePoints();
+				fatePoints.setText(getCharacter().getFatePoints().toString());
 			}
 		});
 		rootView.findViewById(R.id.fate_points_down).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				character.decrementFatePoints();
-				fatePoints.setText(character.getFatePoints().toString());
+				getCharacter().decrementFatePoints();
+				fatePoints.setText(getCharacter().getFatePoints().toString());
 			}
 		});
 

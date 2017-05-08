@@ -48,7 +48,7 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final FAECharacter character = getFAECharacter();
+			FAECharacter character = getFAECharacter();
 
 			View rootView = inflater.inflate(R.layout.fae_character_edit_stress_stress, container, false);
 
@@ -60,8 +60,8 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 			rootView.findViewById(R.id.add_stress).setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v) {
-					int nextValue = character.getStress().size() + 1;
-					character.getStress().add(new Stress(nextValue));
+					int nextValue = getFAECharacter().getStress().size() + 1;
+					getFAECharacter().getStress().add(new Stress(nextValue));
 					stressListAdapter.notifyDataSetChanged();
 				}
 			});
@@ -79,7 +79,7 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final Character character = getCharacter();
+			Character character = getCharacter();
 
 			View rootView = inflater.inflate(R.layout.character_edit_stress_consequence, container, false);
 
@@ -91,8 +91,8 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 			rootView.findViewById(R.id.add_consequence).setOnClickListener(new View.OnClickListener(){
 				@Override
 				public void onClick(View v) {
-					int nextValue = character.getConsequences().size() * 2 + 2;
-					character.getConsequences().add(new Consequence(nextValue));
+					int nextValue = getCharacter().getConsequences().size() * 2 + 2;
+					getCharacter().getConsequences().add(new Consequence(nextValue));
 					consequenceListAdapter.notifyDataSetChanged();
 				}
 			});

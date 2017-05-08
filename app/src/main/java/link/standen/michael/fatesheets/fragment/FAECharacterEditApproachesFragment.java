@@ -41,7 +41,7 @@ public class FAECharacterEditApproachesFragment extends CharacterEditAbstractFra
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			final FAECharacter character = getFAECharacter();
+			FAECharacter character = getFAECharacter();
 
 			View rootView = inflater.inflate(R.layout.fae_character_edit_approaches_approach, container, false);
 
@@ -53,7 +53,7 @@ public class FAECharacterEditApproachesFragment extends CharacterEditAbstractFra
 			rootView.findViewById(R.id.add_approach).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					character.getApproaches().add(new Approach(""));
+					getFAECharacter().getApproaches().add(new Approach(""));
 					approachListAdapter.notifyDataSetChanged();
 				}
 			});
