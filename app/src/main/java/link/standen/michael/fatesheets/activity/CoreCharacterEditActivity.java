@@ -61,6 +61,7 @@ public class CoreCharacterEditActivity extends SharedMenuActivity implements Cha
 		TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
 		tabLayout.setupWithViewPager(mViewPager);
 
+		// FAB
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -74,6 +75,8 @@ public class CoreCharacterEditActivity extends SharedMenuActivity implements Cha
 				}
 			}
 		});
+
+		setupDiceFAB();
 	}
 
 	public CoreCharacter getCharacter(){

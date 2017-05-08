@@ -36,6 +36,23 @@
 	<string name="toast_sheet_open_error">Error opening sheet</string>
 
 
+	<!-- Dice -->
+	<string name="toast_rolled">Rolled %1$s (%2$s): %3$s</string>
+	<!-- https://fate-srd.com/fate-core/taking-action-dice-ladder#the-ladder -->
+	<string-array name="roll_ladder">
+		<item>Terrible</item>
+		<item>Poor</item>
+		<item>Mediocre</item>
+		<item>Average</item>
+		<item>Fair</item>
+		<item>Good</item>
+		<item>Great</item>
+		<item>Superb</item>
+		<item>Fantastic</item>
+		<item>Epic</item>
+		<item>Legendary</item>
+	</string-array>
+
 	<!-- Edit character -->
 
 	<string name="title_activity_character_edit">Edit Character</string>

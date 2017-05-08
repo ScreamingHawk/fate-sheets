@@ -87,6 +87,8 @@ public class CharacterListActivity extends SharedMenuActivity {
 				builder.show();
 			}
 		});
+
+		setupDiceFAB();
 	}
 
 	@Override

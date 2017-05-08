@@ -2,11 +2,15 @@ package link.standen.michael.fatesheets.activity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Random;
+
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.util.DiceClickListener;
 
 /**
  * An abstract class that handles the menu items shared across activities.
@@ -39,4 +43,8 @@ public abstract class SharedMenuActivity extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	protected void setupDiceFAB() {
+		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.dice_fab);
+		fab.setOnClickListener(new DiceClickListener(getResources()));
+	}
 }
