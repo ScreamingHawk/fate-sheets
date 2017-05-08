@@ -39,6 +39,6 @@ If you can't see a similar request, [request yours](https://github.com/Screaming
 This software is provided under the [MIT License](https://tldrlegal.com/license/mit-license) so it's free to use so long as you give me credit.
 
 ### Thanks
-Special thanks to all [the contributors](https://github.com/ScreamingHawk/fate-sheets/graphs/contributors) of Fate Sheets, who have provided images.
+Special thanks to all [the contributors](https://github.com/ScreamingHawk/fate-sheets/graphs/contributors) of Fate Sheets, who have provided images and material design guidance.
 
 I really mean it. You guys rock!
