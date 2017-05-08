@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
  * draw all the views from the adapter. It also does not provide scrolling.
  * However, when you need a layout that will render views horizontally and
  * you know there are not many child views, this is a good option.
-
  *
  * @author Vincent Mimoun-Prat @ MarvinLabs
  */
