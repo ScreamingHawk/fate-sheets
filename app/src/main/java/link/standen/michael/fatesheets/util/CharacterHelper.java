@@ -21,7 +21,7 @@ import link.standen.michael.fatesheets.model.FAECharacter;
 /**
  * A helper class for managing characters
  */
-public final class CharacterHelper {
+public final class CharacterHelper extends JsonFileHelper {
 
 	private static final String TAG = CharacterHelper.class.getName();
 
@@ -43,7 +43,7 @@ public final class CharacterHelper {
 	 * @return True if the write operation was successful, false otherwise.
 	 */
 	public static boolean saveCoreCharacter(Context context, CoreCharacter character) {
-		return saveCharacter(context, new Gson().toJson(character), CORE_PREFIX + character.getName());
+		return saveJsonToFile(context, new Gson().toJson(character), CORE_PREFIX + character.getName());
 	}
 
 	/**
@@ -51,19 +51,7 @@ public final class CharacterHelper {
 	 * @return True if the write operation was successful, false otherwise.
 	 */
 	public static boolean saveFAECharacter(Context context, FAECharacter character) {
-		return saveCharacter(context, new Gson().toJson(character), FAE_PREFIX + character.getName());
-	}
-
-	private static boolean saveCharacter(Context context, String json, String filename) {
-		try {
-			FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
-			fos.write(json.getBytes());
-			fos.close();
-			return true;
-		} catch (IOException e) {
-			Log.e(TAG, "Error writing character", e);
-		}
-		return false;
+		return saveJsonToFile(context, new Gson().toJson(character), FAE_PREFIX + character.getName());
 	}
 
 	/**
@@ -96,31 +84,6 @@ public final class CharacterHelper {
 			return null;
 		}
 		return new Gson().fromJson(json, FAECharacter.class);
-	}
-
-	@Nullable
-	private static String getJsonFromFile(Context context, String filename){
-		String json = null;
-
-		try {
-			FileInputStream fis = context.openFileInput(filename);
-
-			StringBuffer stringBuff = new StringBuffer("");
-			byte[] buff = new byte[1024];
-			int n;
-			while ((n = fis.read(buff)) != -1) {
-				stringBuff.append(new String(buff, 0, n));
-			}
-			fis.close();
-
-			json = stringBuff.toString();
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, String.format("Character file %s not found", filename), e);
-		} catch (IOException e) {
-			Log.e(TAG, String.format("Error reading file %s", filename), e);
-		}
-
-		return json;
 	}
 
 	/**
@@ -182,7 +145,7 @@ public final class CharacterHelper {
 	 * @return True if the delete was successful, false otherwise.
 	 */
 	public static boolean deleteCoreCharacter(Context context, String name) {
-		return context.deleteFile(CORE_PREFIX + name);
+		return deleteFile(context, CORE_PREFIX + name);
 	}
 
 	/**
@@ -190,7 +153,7 @@ public final class CharacterHelper {
 	 * @return True if the delete was successful, false otherwise.
 	 */
 	public static boolean deleteFAECharacter(Context context, String name) {
-		return context.deleteFile(FAE_PREFIX + name);
+		return deleteFile(context, FAE_PREFIX + name);
 	}
 
 	/**
@@ -198,7 +161,7 @@ public final class CharacterHelper {
 	 * @return True if the delete was successful, false otherwise.
 	 */
 	public static boolean deleteCharacterFile(Context context, String filename) {
-		return context.deleteFile(filename);
+		return deleteFile(context, filename);
 	}
 
 }
