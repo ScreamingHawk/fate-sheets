@@ -11,12 +11,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.model.Skill;
+import link.standen.michael.fatesheets.util.SkillsHelper;
 
 /**
  * Manages a list of character skills.
@@ -29,12 +31,17 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 	private final int resourceId;
 	private final List<Skill> items;
 
+	private static List<String> skills;
+
 	public SkillArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Skill> items) {
 		super(context, resourceId, items);
 
 		this.context = context;
 		this.resourceId = resourceId;
 		this.items = items;
+
+		// Refresh skills list
+		skills = SkillsHelper.getSkills(context);
 	}
 
 	public Skill getItem(int index){
@@ -79,6 +86,7 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 
 		// Description
 		Spinner descriptionView = ((Spinner)view.findViewById(R.id.description));
+		descriptionView.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, skills));
 		final String description = getItem(position).getDescription();
 		if (description != null) {
 			descriptionView.setSelection(((ArrayAdapter)descriptionView.getAdapter()).getPosition(description));
