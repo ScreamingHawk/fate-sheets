@@ -36,6 +36,9 @@ public abstract class SharedMenuActivity extends AppCompatActivity {
 		} else if (id == R.id.action_docs) {
 			startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://fate-srd.com/")));
 			return true;
+		} else if (id == R.id.action_edit_skills) {
+			startActivity(new Intent(this, EditSkillsActivity.class));
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);

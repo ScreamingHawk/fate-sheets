@@ -8,6 +8,7 @@
 	<string name="app_name">&appname;</string>
 
 	<!-- Menus -->
+	<string name="action_edit_skills">Edit Skills List</string>
 	<string name="action_docs">Rules / Docs</string>
 	<string name="action_settings">Settings</string>
 	<string name="action_credits">Credits</string>
@@ -143,4 +144,10 @@
 	<string name="credits_content3">This application is completely free and open source; licensed
 		under the <a href="https://tldrlegal.com/license/mit-license">MIT license</a>.
 	</string>
+
+	<!-- Edit Skills -->
+	<string name="title_activity_edit_skills">Edit Skills</string>
+
+	<string name="toast_skills_saved_successful">Skills saved</string>
+	<string name="toast_skills_saved_error">Error when saving skills</string>
 </resources>
