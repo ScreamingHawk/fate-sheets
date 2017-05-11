@@ -141,8 +141,8 @@
 	<string name="credits_content2">You can view the source code, log bugs or request features on
 		<a href="https://github.com/ScreamingHawk/fate-sheets">Github</a>.
 	</string>
-	<string name="credits_content3">This application is completely free and open source; licensed
-		under the <a href="https://tldrlegal.com/license/mit-license">MIT license</a>.
+	<string name="credits_content3">This application is completely open source; licensed under the
+		<a href="https://tldrlegal.com/license/mit-license">MIT license</a>.
 	</string>
 
 	<!-- Edit Skills -->
