@@ -1,8 +1,9 @@
 package link.standen.michael.fatesheets.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -50,8 +51,7 @@ public class EditSkillsActivity extends AppCompatActivity {
 		});
 
 		// FAB
-		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-		fab.setOnClickListener(new View.OnClickListener() {
+		findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				if (SkillsHelper.saveSkills(EditSkillsActivity.this, skills)) {
@@ -63,11 +63,49 @@ public class EditSkillsActivity extends AppCompatActivity {
 				}
 			}
 		});
+		findViewById(R.id.fab_2).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				// Dialog to select which sheet type to create
+				AlertDialog.Builder builder = new AlertDialog.Builder(EditSkillsActivity.this);
+				builder.setTitle(R.string.reset_skills_list_confirmation_title);
+				builder.setMessage(R.string.reset_skills_list_confirmation_title);
+
+				builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+						revertSkills();
+					}
+				});
+				builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+				builder.show();
+			}
+		});
 	}
 
+	/**
+	 * Refreshes the skills list with the saved list.
+	 */
 	private void refreshSkills(){
 		skills.clear();
 		skills.addAll(SkillsHelper.getSkills(this));
+		if (listAdapter != null) {
+			listAdapter.notifyDataSetChanged();
+		}
+	}
+
+	/**
+	 * Reverts the skills list to the default list.
+	 */
+	private void revertSkills(){
+		skills.clear();
+		skills.addAll(SkillsHelper.getDefaultSkills(this));
 		if (listAdapter != null) {
 			listAdapter.notifyDataSetChanged();
 		}

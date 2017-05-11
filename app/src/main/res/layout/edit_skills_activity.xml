@@ -32,4 +32,14 @@
 		app:srcCompat="@drawable/ic_save_black_24dp"
 		android:tint="@color/colorTint"/>
 
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/fab_2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom|end"
+		android:layout_marginBottom="@dimen/fab_margin"
+		android:layout_marginEnd="@dimen/fab_2_margin"
+		app:srcCompat="@mipmap/ic_replay_black_24dp"
+		android:tint="@color/colorTint"/>
+
 </android.support.design.widget.CoordinatorLayout>

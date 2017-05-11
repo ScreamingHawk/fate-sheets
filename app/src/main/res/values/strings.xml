@@ -150,4 +150,9 @@
 
 	<string name="toast_skills_saved_successful">Skills saved</string>
 	<string name="toast_skills_saved_error">Error when saving skills</string>
+
+	<string name="reset_skills_list_confirmation_title">Reset Skills to Default</string>
+	<string name="reset_skills_list_confirmation_body">Are you sure you would like to reset all
+		skills to the default list?
+	</string>
 </resources>
