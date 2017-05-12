@@ -68,5 +68,21 @@
 				android:padding="@dimen/credits_padding"
 				android:text="@string/credits_content3"/>
 
+			<ImageView
+				android:layout_width="230dp"
+				android:layout_height="100dp"
+				android:layout_gravity="center_horizontal"
+				android:paddingTop="@dimen/credits_padding"
+				android:src="@drawable/ic_powered_by_fate"/>
+
+			<TextView
+				android:id="@+id/credits_powered_by_fate"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/credits_padding"
+				android:text="@string/credits_powered_by_fate"
+				android:textStyle="italic"
+				android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+
 		</LinearLayout>
 </ScrollView>

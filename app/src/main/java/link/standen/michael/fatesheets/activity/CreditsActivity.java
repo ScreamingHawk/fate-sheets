@@ -35,5 +35,6 @@ public class CreditsActivity extends AppCompatActivity {
 		((TextView)findViewById(R.id.credits_content1)).setMovementMethod(LinkMovementMethod.getInstance());
 		((TextView)findViewById(R.id.credits_content2)).setMovementMethod(LinkMovementMethod.getInstance());
 		((TextView)findViewById(R.id.credits_content3)).setMovementMethod(LinkMovementMethod.getInstance());
+		((TextView)findViewById(R.id.credits_powered_by_fate)).setMovementMethod(LinkMovementMethod.getInstance());
 	}
 }
