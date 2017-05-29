@@ -58,7 +58,7 @@ public class EditSkillsActivity extends AppCompatActivity {
 					Snackbar.make(view, getResources().getString(R.string.toast_skills_saved_successful), Snackbar.LENGTH_LONG)
 							.setAction("Action", null).show();
 				} else {
-					Snackbar.make(view, getResources().getString(R.string.toast_skills_saved_successful), Snackbar.LENGTH_LONG)
+					Snackbar.make(view, getResources().getString(R.string.toast_skills_saved_error), Snackbar.LENGTH_LONG)
 							.setAction("Action", null).show();
 				}
 			}
@@ -69,7 +69,7 @@ public class EditSkillsActivity extends AppCompatActivity {
 				// Dialog to select which sheet type to create
 				AlertDialog.Builder builder = new AlertDialog.Builder(EditSkillsActivity.this);
 				builder.setTitle(R.string.reset_skills_list_confirmation_title);
-				builder.setMessage(R.string.reset_skills_list_confirmation_title);
+				builder.setMessage(R.string.reset_skills_list_confirmation_body);
 
 				builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 					@Override
