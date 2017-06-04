@@ -33,6 +33,7 @@ public abstract class JsonFileHelper {
 		try {
 			FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
 			fos.write(json.getBytes());
+			fos.flush();
 			fos.close();
 			return true;
 		} catch (IOException e) {
@@ -45,7 +46,7 @@ public abstract class JsonFileHelper {
 	 * Loads JSON from a file.
 	 */
 	@Nullable
-	protected static String getJsonFromFile(Context context, String filename){
+	public static String getJsonFromFile(Context context, String filename){
 		String json = null;
 
 		try {
