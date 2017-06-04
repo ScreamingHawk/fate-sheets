@@ -112,8 +112,6 @@ public class CoreCharacterEditStressFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			CoreCharacter character = getCoreCharacter();
-
 			View rootView = inflater.inflate(R.layout.character_edit_stress_consequence, container, false);
 
 			// Consequences

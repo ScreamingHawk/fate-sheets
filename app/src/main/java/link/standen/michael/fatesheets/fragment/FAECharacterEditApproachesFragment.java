@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.ApproachArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
-import link.standen.michael.fatesheets.model.FAECharacter;
 import link.standen.michael.fatesheets.model.Approach;
 
 /**
@@ -41,13 +40,11 @@ public class FAECharacterEditApproachesFragment extends CharacterEditAbstractFra
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			FAECharacter character = getFAECharacter();
-
 			View rootView = inflater.inflate(R.layout.fae_character_edit_approaches_approach, container, false);
 
 			// Approaches
 			final ApproachArrayAdapter approachListAdapter = new ApproachArrayAdapter(getContext(),
-					R.layout.fae_character_edit_approaches_list_item, character.getApproaches());
+					R.layout.fae_character_edit_approaches_list_item, getFAECharacter().getApproaches());
 			((AdapterLinearLayout) rootView.findViewById(R.id.approaches_list)).setAdapter(approachListAdapter);
 
 			rootView.findViewById(R.id.add_approach).setOnClickListener(new View.OnClickListener() {

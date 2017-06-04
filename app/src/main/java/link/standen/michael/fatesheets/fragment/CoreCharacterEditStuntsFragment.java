@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
-import link.standen.michael.fatesheets.model.CoreCharacter;
 
 /**
  * A fragment for managing a characters stunts.
@@ -44,8 +43,6 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			CoreCharacter character = getCoreCharacter();
-
 			View rootView = inflater.inflate(R.layout.character_edit_stunts_stunt, container, false);
 
 			// Stunts
@@ -74,13 +71,11 @@ public class CoreCharacterEditStuntsFragment extends CharacterEditAbstractFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			CoreCharacter character = getCoreCharacter();
-
 			View rootView = inflater.inflate(R.layout.core_character_edit_stunts_extra, container, false);
 
 			// Extras
 			final DeletableStringArrayAdapter extraListAdapter = new DeletableStringArrayAdapter(getContext(),
-					R.layout.core_character_edit_extras_list_item, character.getExtras());
+					R.layout.core_character_edit_extras_list_item, getCoreCharacter().getExtras());
 			((AdapterLinearLayout) rootView.findViewById(R.id.extras_list)).setAdapter(extraListAdapter);
 
 			rootView.findViewById(R.id.add_extra).setOnClickListener(new View.OnClickListener(){

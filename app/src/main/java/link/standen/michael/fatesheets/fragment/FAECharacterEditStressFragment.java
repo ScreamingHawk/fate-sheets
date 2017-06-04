@@ -12,8 +12,6 @@ import link.standen.michael.fatesheets.adapter.ConsequenceArrayAdapter;
 import link.standen.michael.fatesheets.adapter.StressArrayAdapter;
 import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.Consequence;
-import link.standen.michael.fatesheets.model.Character;
-import link.standen.michael.fatesheets.model.FAECharacter;
 import link.standen.michael.fatesheets.model.Stress;
 
 /**
@@ -48,13 +46,11 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			FAECharacter character = getFAECharacter();
-
 			View rootView = inflater.inflate(R.layout.fae_character_edit_stress_stress, container, false);
 
 			// Stress
 			final StressArrayAdapter stressListAdapter = new StressArrayAdapter(getContext(),
-					R.layout.character_edit_stress_list_item, character.getStress());
+					R.layout.character_edit_stress_list_item, getFAECharacter().getStress());
 			((AdapterLinearLayout) rootView.findViewById(R.id.stress_list)).setAdapter(stressListAdapter);
 
 			rootView.findViewById(R.id.add_stress).setOnClickListener(new View.OnClickListener(){
@@ -79,13 +75,11 @@ public class FAECharacterEditStressFragment extends CharacterEditAbstractFragmen
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 								 Bundle savedInstanceState) {
 
-			Character character = getCharacter();
-
 			View rootView = inflater.inflate(R.layout.character_edit_stress_consequence, container, false);
 
 			// Consequences
 			final ConsequenceArrayAdapter consequenceListAdapter = new ConsequenceArrayAdapter(getContext(),
-					R.layout.character_edit_consequence_list_item, character.getConsequences());
+					R.layout.character_edit_consequence_list_item, getCharacter().getConsequences());
 			((AdapterLinearLayout) rootView.findViewById(R.id.consequence_list)).setAdapter(consequenceListAdapter);
 
 			rootView.findViewById(R.id.add_consequence).setOnClickListener(new View.OnClickListener(){
