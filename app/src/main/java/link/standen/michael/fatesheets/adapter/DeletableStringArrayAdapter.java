@@ -4,7 +4,8 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,11 +60,16 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
 		descriptionView.setText(getItem(position));
 		// Update description field on focus lost
-		descriptionView.setOnKeyListener(new View.OnKeyListener(){
+		descriptionView.addTextChangedListener(new TextWatcher() {
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				items.set(position, ((TextView)v).getText().toString());
-				return false;
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				items.set(position, s.toString());
 			}
 		});
 

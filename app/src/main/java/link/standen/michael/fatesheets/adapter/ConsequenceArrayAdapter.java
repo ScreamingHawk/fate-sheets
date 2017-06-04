@@ -4,7 +4,8 @@ import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,26 +62,36 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
 		valueView.setText(item.getValue().toString());
-		valueView.setOnKeyListener(new View.OnKeyListener(){
+		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+			@Override
+			public void afterTextChanged(Editable s) {
 				try {
-					item.setValue(Integer.parseInt(((TextView)v).getText().toString()));
+					item.setValue(Integer.parseInt(s.toString()));
 				} catch (NumberFormatException e){
 					item.setValue(0);
 				}
-				return false;
 			}
 		});
 
 		// Description
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
 		descriptionView.setText(item.getDescription());
-		descriptionView.setOnKeyListener(new View.OnKeyListener(){
+		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				item.setDescription(((TextView)v).getText().toString());
-				return false;
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				item.setDescription(s.toString());
 			}
 		});
 
