@@ -1,7 +1,8 @@
 package link.standen.michael.fatesheets.fragment;
 
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,21 +26,31 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 		// Name
 		TextView view = (TextView) rootView.findViewById(R.id.name);
 		view.setText(character.getName());
-		view.setOnKeyListener(new View.OnKeyListener(){
+		view.addTextChangedListener(new TextWatcher() {
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				getCharacter().setName(((TextView)v).getText().toString());
-				return false;
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				getCharacter().setName(s.toString());
 			}
 		});
 		// Description
 		view = (TextView) rootView.findViewById(R.id.description);
 		view.setText(character.getDescription());
-		view.setOnKeyListener(new View.OnKeyListener(){
+		view.addTextChangedListener(new TextWatcher() {
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-				getCharacter().setDescription(((TextView)v).getText().toString());
-				return false;
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				getCharacter().setDescription(s.toString());
 			}
 		});
 		// Fate Points
