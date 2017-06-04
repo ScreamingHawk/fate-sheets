@@ -1,22 +1,13 @@
 package link.standen.michael.fatesheets.util;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
-
-import com.google.gson.Gson;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import link.standen.michael.fatesheets.R;
-import link.standen.michael.fatesheets.model.CoreCharacter;
-import link.standen.michael.fatesheets.model.FAECharacter;
 
 /**
  * A helper class for managing JSON files
@@ -46,21 +37,21 @@ public abstract class JsonFileHelper {
 	 * Loads JSON from a file.
 	 */
 	@Nullable
-	public static String getJsonFromFile(Context context, String filename){
+	protected static String getJsonFromFile(Context context, String filename){
 		String json = null;
 
 		try {
 			FileInputStream fis = context.openFileInput(filename);
 
-			StringBuffer stringBuff = new StringBuffer("");
+			StringBuilder bob = new StringBuilder("");
 			byte[] buff = new byte[1024];
 			int n;
 			while ((n = fis.read(buff)) != -1) {
-				stringBuff.append(new String(buff, 0, n));
+				bob.append(new String(buff, 0, n));
 			}
 			fis.close();
 
-			json = stringBuff.toString();
+			json = bob.toString();
 		} catch (FileNotFoundException e) {
 			Log.e(TAG, String.format("JSON file %s not found", filename), e);
 		} catch (IOException e) {
