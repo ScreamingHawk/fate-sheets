@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
@@ -27,6 +28,8 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 	private final Context context;
 	private final int resourceId;
 	private final List<Consequence> items;
+
+	private final List<TextWatcher> listeners = new ArrayList<>();
 
 	public ConsequenceArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Consequence> items) {
 		super(context, resourceId, items);
@@ -62,39 +65,69 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
 		valueView.setText(item.getValue().toString());
-		valueView.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				try {
-					item.setValue(Integer.parseInt(s.toString()));
-				} catch (NumberFormatException e){
-					item.setValue(0);
-				}
-			}
-		});
+		// Update watcher for value changes
+		for (TextWatcher l : listeners){
+			valueView.removeTextChangedListener(l);
+		}
+		TextWatcher listener = new ValueTextChangedListener(item);
+		listeners.add(listener);
+		valueView.addTextChangedListener(listener);
 
 		// Description
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
 		descriptionView.setText(item.getDescription());
-		valueView.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				item.setDescription(s.toString());
-			}
-		});
+		// Update watcher for description changes
+		for (TextWatcher l : listeners){
+			descriptionView.removeTextChangedListener(l);
+		}
+		listener = new DescriptionTextChangedListener(item);
+		listeners.add(listener);
+		descriptionView.addTextChangedListener(listener);
 
 		return view;
+	}
+
+	class ValueTextChangedListener implements TextWatcher {
+
+		private final Consequence item;
+
+		private ValueTextChangedListener(Consequence item){
+			this.item = item;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			try {
+				item.setValue(Integer.parseInt(s.toString()));
+			} catch (NumberFormatException e){
+				item.setValue(0);
+			}
+		}
+	}
+
+	class DescriptionTextChangedListener implements TextWatcher {
+
+		private final Consequence item;
+
+		private DescriptionTextChangedListener(Consequence item){
+			this.item = item;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			item.setDescription(s.toString());
+		}
 	}
 }

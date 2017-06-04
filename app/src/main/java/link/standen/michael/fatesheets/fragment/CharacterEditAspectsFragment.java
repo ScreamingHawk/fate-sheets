@@ -20,6 +20,9 @@ import link.standen.michael.fatesheets.model.Character;
  */
 public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment {
 
+	private TextWatcher highConceptTextWatcher;
+	private TextWatcher troubleTextWatcher;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
@@ -34,33 +37,39 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 		// High Concept
 		TextView view = (TextView) rootView.findViewById(R.id.high_concept);
 		view.setText(character.getHighConcept());
-		view.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+		if (highConceptTextWatcher == null){
+			highConceptTextWatcher = new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
-			@Override
-			public void afterTextChanged(Editable s) {
-				getCharacter().setHighConcept(s.toString());
-			}
-		});
+				@Override
+				public void afterTextChanged(Editable s) {
+					getCharacter().setHighConcept(s.toString());
+				}
+			};
+			view.addTextChangedListener(highConceptTextWatcher);
+		}
 		// Trouble
 		view = (TextView) rootView.findViewById(R.id.trouble);
 		view.setText(character.getTrouble());
-		view.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+		if (troubleTextWatcher == null){
+			troubleTextWatcher = new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
-			@Override
-			public void afterTextChanged(Editable s) {
-				getCharacter().setTrouble(s.toString());
-			}
-		});
+				@Override
+				public void afterTextChanged(Editable s) {
+					getCharacter().setTrouble(s.toString());
+				}
+			};
+			view.addTextChangedListener(troubleTextWatcher);
+		}
 
 		// Aspects
 		Fragment childFragment = new AspectFragment();

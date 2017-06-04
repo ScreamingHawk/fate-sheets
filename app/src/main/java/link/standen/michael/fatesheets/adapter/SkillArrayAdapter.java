@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
@@ -30,6 +31,8 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 	private final Context context;
 	private final int resourceId;
 	private final List<Skill> items;
+
+	private final List<TextWatcher> listeners = new ArrayList<>();
 
 	private static List<String> skills;
 
@@ -72,22 +75,13 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 		if (item.getValue() != null) {
 			valueView.setText(item.getValue().toString());
 		}
-		valueView.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				try {
-					item.setValue(Integer.parseInt(s.toString()));
-				} catch (NumberFormatException e){
-					item.setValue(0);
-				}
-			}
-		});
+		// Update watcher for value changes
+		for (TextWatcher l : listeners){
+			valueView.removeTextChangedListener(l);
+		}
+		TextWatcher listener = new ValueTextChangedListener(item);
+		listeners.add(listener);
+		valueView.addTextChangedListener(listener);
 
 		// Description
 		Spinner descriptionView = ((Spinner)view.findViewById(R.id.description));
@@ -110,5 +104,29 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 		});
 
 		return view;
+	}
+
+	class ValueTextChangedListener implements TextWatcher {
+
+		private final Skill item;
+
+		private ValueTextChangedListener(Skill item){
+			this.item = item;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			try {
+				item.setValue(Integer.parseInt(s.toString()));
+			} catch (NumberFormatException e){
+				item.setValue(0);
+			}
+		}
 	}
 }

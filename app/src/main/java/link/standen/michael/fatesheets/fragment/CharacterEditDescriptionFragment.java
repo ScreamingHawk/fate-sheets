@@ -16,6 +16,9 @@ import link.standen.michael.fatesheets.model.Character;
  */
 public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragment {
 
+	private TextWatcher nameTextWatcher;
+	private TextWatcher descriptionTextWatcher;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
@@ -26,33 +29,39 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 		// Name
 		TextView view = (TextView) rootView.findViewById(R.id.name);
 		view.setText(character.getName());
-		view.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+		if (nameTextWatcher == null){
+			nameTextWatcher = new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
-			@Override
-			public void afterTextChanged(Editable s) {
-				getCharacter().setName(s.toString());
-			}
-		});
+				@Override
+				public void afterTextChanged(Editable s) {
+					getCharacter().setName(s.toString());
+				}
+			};
+			view.addTextChangedListener(nameTextWatcher);
+		}
 		// Description
 		view = (TextView) rootView.findViewById(R.id.description);
 		view.setText(character.getDescription());
-		view.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+		if (descriptionTextWatcher == null){
+			descriptionTextWatcher = new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
-			@Override
-			public void afterTextChanged(Editable s) {
-				getCharacter().setDescription(s.toString());
-			}
-		});
+				@Override
+				public void afterTextChanged(Editable s) {
+					getCharacter().setDescription(s.toString());
+				}
+			};
+			view.addTextChangedListener(descriptionTextWatcher);
+		}
 		// Fate Points
 		final TextView fatePoints = (TextView) rootView.findViewById(R.id.fate_points);
 		fatePoints.setText(character.getFatePoints().toString());

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
@@ -26,6 +27,8 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 	private final Context context;
 	private final int resourceId;
 	private final List<String> items;
+
+	private final List<TextWatcher> listeners = new ArrayList<>();
 
 	public DeletableStringArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<String> items) {
 		super(context, resourceId, items);
@@ -59,20 +62,34 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 		// Description
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
 		descriptionView.setText(getItem(position));
-		// Update description field on focus lost
-		descriptionView.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				items.set(position, s.toString());
-			}
-		});
+		// Update watcher for description changes
+		for (TextWatcher l : listeners){
+			descriptionView.removeTextChangedListener(l);
+		}
+		TextWatcher listener = new TextChangedListener(position);
+		listeners.add(listener);
+		descriptionView.addTextChangedListener(listener);
 
 		return view;
+	}
+
+	class TextChangedListener implements TextWatcher {
+
+		private final int position;
+
+		private TextChangedListener(int position){
+			this.position = position;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			items.set(this.position, s.toString());
+		}
 	}
 }

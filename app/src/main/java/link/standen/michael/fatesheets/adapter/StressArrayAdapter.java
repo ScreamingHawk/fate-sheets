@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
@@ -29,6 +30,8 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 	private final Context context;
 	private final int resourceId;
 	private final List<Stress> items;
+
+	private final List<TextWatcher> listeners = new ArrayList<>();
 
 	public StressArrayAdapter(@NonNull Context context, @LayoutRes int resourceId, @NonNull List<Stress> items) {
 		super(context, resourceId, items);
@@ -66,22 +69,13 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 		if (item.getValue() != null) {
 			valueView.setText(item.getValue().toString());
 		}
-		valueView.addTextChangedListener(new TextWatcher() {
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-			@Override
-			public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-			@Override
-			public void afterTextChanged(Editable s) {
-				try {
-					item.setValue(Integer.parseInt(s.toString()));
-				} catch (NumberFormatException e){
-					item.setValue(0);
-				}
-			}
-		});
+		// Update watcher for value changes
+		for (TextWatcher l : listeners){
+			valueView.removeTextChangedListener(l);
+		}
+		TextWatcher listener = new ValueTextChangedListener(item);
+		listeners.add(listener);
+		valueView.addTextChangedListener(listener);
 
 		// Active
 		CheckBox activeView = ((CheckBox)view.findViewById(R.id.active));
@@ -94,5 +88,29 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 		});
 
 		return view;
+	}
+
+	class ValueTextChangedListener implements TextWatcher {
+
+		private final Stress item;
+
+		private ValueTextChangedListener(Stress item){
+			this.item = item;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+		@Override
+		public void afterTextChanged(Editable s) {
+			try {
+				item.setValue(Integer.parseInt(s.toString()));
+			} catch (NumberFormatException e){
+				item.setValue(0);
+			}
+		}
 	}
 }
