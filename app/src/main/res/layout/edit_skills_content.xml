@@ -13,7 +13,7 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+		<link.standen.michael.fatesheets.view.AdapterLinearLayout
 			android:id="@android:id/list"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

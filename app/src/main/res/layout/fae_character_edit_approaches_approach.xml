@@ -30,13 +30,13 @@
 		android:paddingRight="@dimen/activity_horizontal_margin"
 		android:orientation="vertical">
 
-		<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+		<link.standen.michael.fatesheets.view.AdapterLinearLayout
 			android:id="@+id/approaches_list"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical">
 
-		</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+		</link.standen.michael.fatesheets.view.AdapterLinearLayout>
 
 		<ImageButton
 			android:id="@+id/add_approach"

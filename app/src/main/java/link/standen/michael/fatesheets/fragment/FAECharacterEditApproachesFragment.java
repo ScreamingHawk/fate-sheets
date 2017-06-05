@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.ApproachArrayAdapter;
-import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
+import link.standen.michael.fatesheets.view.AdapterLinearLayout;
 import link.standen.michael.fatesheets.model.Approach;
 
 /**

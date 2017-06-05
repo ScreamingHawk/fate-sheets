@@ -14,7 +14,7 @@ import java.util.List;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.DeletableStringArrayAdapter;
-import link.standen.michael.fatesheets.layout.AdapterLinearLayout;
+import link.standen.michael.fatesheets.view.AdapterLinearLayout;
 import link.standen.michael.fatesheets.util.SkillsHelper;
 
 public class EditSkillsActivity extends AppCompatActivity {

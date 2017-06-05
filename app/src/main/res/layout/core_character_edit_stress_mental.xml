@@ -23,13 +23,13 @@
 		android:layout_height="1dp"
 		android:background="@color/colorDivider"/>
 
-	<link.standen.michael.fatesheets.layout.AdapterLinearLayout
+	<link.standen.michael.fatesheets.view.AdapterLinearLayout
 		android:id="@+id/mental_stress_list"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-	</link.standen.michael.fatesheets.layout.AdapterLinearLayout>
+	</link.standen.michael.fatesheets.view.AdapterLinearLayout>
 
 	<ImageButton
 		android:id="@+id/add_mental_stress"

@@ -1,4 +1,4 @@
-package link.standen.michael.fatesheets.layout;
+package link.standen.michael.fatesheets.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
