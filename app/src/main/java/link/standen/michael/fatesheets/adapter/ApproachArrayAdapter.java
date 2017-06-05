@@ -63,9 +63,6 @@ public class ApproachArrayAdapter extends ArrayAdapter<Approach> {
 
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
-		if (item.getValue() != null) {
-			valueView.setText(item.getValue().toString());
-		}
 		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -82,6 +79,9 @@ public class ApproachArrayAdapter extends ArrayAdapter<Approach> {
 				}
 			}
 		});
+		if (item.getValue() != null) {
+			valueView.setText(item.getValue().toString());
+		}
 
 		// Description
 		Spinner descriptionView = ((Spinner)view.findViewById(R.id.description));

@@ -61,7 +61,6 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
-		valueView.setText(item.getValue().toString());
 		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -78,10 +77,10 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 				}
 			}
 		});
+		valueView.setText(item.getValue().toString());
 
 		// Description
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
-		descriptionView.setText(item.getDescription());
 		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -94,6 +93,7 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 				item.setDescription(s.toString());
 			}
 		});
+		descriptionView.setText(item.getDescription());
 
 		return view;
 	}

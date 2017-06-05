@@ -22,13 +22,13 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"/>
 
-			<EditText
+			<link.standen.michael.fatesheets.view.SingleChangeListenerEditText
 				android:id="@+id/high_concept"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:hint="@string/edit_character_high_concept_hint"/>
 
-			<EditText
+			<link.standen.michael.fatesheets.view.SingleChangeListenerEditText
 				android:id="@+id/trouble"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

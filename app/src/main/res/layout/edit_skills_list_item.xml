@@ -8,7 +8,7 @@
 	android:paddingRight="@dimen/activity_horizontal_margin"
 	tools:context="link.standen.michael.fatesheets.activity.EditSkillsActivity">
 
-	<EditText
+	<link.standen.michael.fatesheets.view.SingleChangeListenerEditText
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:id="@+id/description"

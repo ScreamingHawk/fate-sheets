@@ -57,8 +57,7 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 		});
 
 		// Description
-		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
-		descriptionView.setText(getItem(position));
+		TextView descriptionView = (TextView) view.findViewById(R.id.description);
 		// Update description field on focus lost
 		descriptionView.addTextChangedListener(new TextWatcher() {
 			@Override
@@ -72,6 +71,7 @@ public class DeletableStringArrayAdapter extends ArrayAdapter<String> {
 				items.set(position, s.toString());
 			}
 		});
+		descriptionView.setText(getItem(position));
 
 		return view;
 	}

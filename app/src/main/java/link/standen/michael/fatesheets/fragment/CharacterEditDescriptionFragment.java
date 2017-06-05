@@ -25,7 +25,6 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 
 		// Name
 		TextView view = (TextView) rootView.findViewById(R.id.name);
-		view.setText(character.getName());
 		view.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -38,9 +37,9 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 				getCharacter().setName(s.toString());
 			}
 		});
+		view.setText(character.getName());
 		// Description
 		view = (TextView) rootView.findViewById(R.id.description);
-		view.setText(character.getDescription());
 		view.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -53,6 +52,7 @@ public class CharacterEditDescriptionFragment extends CharacterEditAbstractFragm
 				getCharacter().setDescription(s.toString());
 			}
 		});
+		view.setText(character.getDescription());
 		// Fate Points
 		final TextView fatePoints = (TextView) rootView.findViewById(R.id.fate_points);
 		fatePoints.setText(character.getFatePoints().toString());

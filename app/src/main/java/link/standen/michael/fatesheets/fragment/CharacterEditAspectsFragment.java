@@ -33,7 +33,6 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 
 		// High Concept
 		TextView view = (TextView) rootView.findViewById(R.id.high_concept);
-		view.setText(character.getHighConcept());
 		view.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -46,9 +45,9 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 				getCharacter().setHighConcept(s.toString());
 			}
 		});
+		view.setText(character.getHighConcept());
 		// Trouble
 		view = (TextView) rootView.findViewById(R.id.trouble);
-		view.setText(character.getTrouble());
 		view.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -61,6 +60,7 @@ public class CharacterEditAspectsFragment extends CharacterEditAbstractFragment 
 				getCharacter().setTrouble(s.toString());
 			}
 		});
+		view.setText(character.getTrouble());
 
 		// Aspects
 		Fragment childFragment = new AspectFragment();

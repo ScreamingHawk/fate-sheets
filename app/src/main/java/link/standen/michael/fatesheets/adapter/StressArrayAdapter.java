@@ -63,9 +63,6 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
-		if (item.getValue() != null) {
-			valueView.setText(item.getValue().toString());
-		}
 		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -82,6 +79,9 @@ public class StressArrayAdapter extends ArrayAdapter<Stress> {
 				}
 			}
 		});
+		if (item.getValue() != null) {
+			valueView.setText(item.getValue().toString());
+		}
 
 		// Active
 		CheckBox activeView = ((CheckBox)view.findViewById(R.id.active));

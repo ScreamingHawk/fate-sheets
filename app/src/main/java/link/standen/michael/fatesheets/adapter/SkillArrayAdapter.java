@@ -69,9 +69,6 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 
 		// Value
 		TextView valueView = ((TextView)view.findViewById(R.id.value));
-		if (item.getValue() != null) {
-			valueView.setText(item.getValue().toString());
-		}
 		valueView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -88,16 +85,14 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 				}
 			}
 		});
+		if (item.getValue() != null) {
+			valueView.setText(item.getValue().toString());
+		}
 
 		// Description
 		Spinner descriptionView = ((Spinner)view.findViewById(R.id.description));
 		descriptionView.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, skills));
 		final String description = getItem(position).getDescription();
-		if (description != null) {
-			descriptionView.setSelection(((ArrayAdapter)descriptionView.getAdapter()).getPosition(description));
-		} else {
-			//FIXME descriptionView.setSelection();
-		}
 		// Update description field on focus lost
 		descriptionView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override
@@ -108,6 +103,11 @@ public class SkillArrayAdapter extends ArrayAdapter<Skill> {
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {}
 		});
+		if (description != null) {
+			descriptionView.setSelection(((ArrayAdapter)descriptionView.getAdapter()).getPosition(description));
+		} else {
+			//FIXME descriptionView.setSelection();
+		}
 
 		return view;
 	}
