@@ -81,7 +81,7 @@ public class ConsequenceArrayAdapter extends ArrayAdapter<Consequence> {
 
 		// Description
 		TextView descriptionView = ((TextView)view.findViewById(R.id.description));
-		valueView.addTextChangedListener(new TextWatcher() {
+		descriptionView.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
