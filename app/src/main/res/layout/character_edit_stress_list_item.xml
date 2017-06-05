@@ -17,7 +17,7 @@
 		android:layout_centerVertical="true"
 		android:hint="@string/number_zero_hint"/>
 
-	<CheckBox
+	<link.standen.michael.fatesheets.view.NoRestoreListenerCheckbox
 		android:id="@+id/active"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
