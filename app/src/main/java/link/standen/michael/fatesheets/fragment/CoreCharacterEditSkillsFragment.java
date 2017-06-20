@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.Collections;
@@ -97,8 +98,14 @@ public class CoreCharacterEditSkillsFragment extends CharacterEditAbstractFragme
 					sortAlpha = !sortAlpha;
 					if (sortAlpha){
 						Collections.sort(getCoreCharacter().getSkills(), alphaComparator);
+						if (v instanceof ImageButton){
+							((ImageButton) v).setImageResource(R.mipmap.ic_sort_1_black_24dp);
+						}
 					} else {
 						Collections.sort(getCoreCharacter().getSkills(), numberComparator);
+						if (v instanceof ImageButton){
+							((ImageButton) v).setImageResource(R.mipmap.ic_sort_a_black_24dp);
+						}
 					}
 					skillListAdapter.notifyDataSetChanged();
 				}
