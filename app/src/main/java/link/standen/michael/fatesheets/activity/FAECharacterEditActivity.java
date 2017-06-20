@@ -73,6 +73,8 @@ public class FAECharacterEditActivity extends SharedMenuActivity implements Char
 				}
 			}
 		});
+
+		setupDiceFAB();
 	}
 
 	public FAECharacter getCharacter(){
