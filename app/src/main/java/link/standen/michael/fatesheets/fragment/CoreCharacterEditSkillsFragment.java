@@ -6,6 +6,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.Collections;
+import java.util.Comparator;
 
 import link.standen.michael.fatesheets.R;
 import link.standen.michael.fatesheets.adapter.SkillArrayAdapter;
@@ -54,6 +58,48 @@ public class CoreCharacterEditSkillsFragment extends CharacterEditAbstractFragme
 				@Override
 				public void onClick(View v) {
 					getCoreCharacter().getSkills().add(new Skill(null, ""));
+					skillListAdapter.notifyDataSetChanged();
+				}
+			});
+
+			// Sort
+			rootView.findViewById(R.id.sort_skills).setOnClickListener(new View.OnClickListener() {
+
+				boolean sortAlpha = false;
+
+				Comparator<Skill> alphaComparator = new Comparator<Skill>() {
+					@Override
+					public int compare(Skill o1, Skill o2) {
+						if (o1 == null || o1.getDescription() == null || o1.getDescription().trim().isEmpty()){
+							return 1;
+						} else if (o2 == null || o2.getDescription() == null || o2.getDescription().trim().isEmpty()){
+							return -1;
+						}
+
+						return o1.getDescription().compareTo(o2.getDescription());
+					}
+				};
+				Comparator<Skill> numberComparator = new Comparator<Skill>() {
+					@Override
+					public int compare(Skill o1, Skill o2) {
+						if (o1 == null || o1.getValue() == null){
+							return -1;
+						} else if (o2 == null || o2.getValue() == null){
+							return 1;
+						}
+
+						return o2.getValue().compareTo(o1.getValue());
+					}
+				};
+
+				@Override
+				public void onClick(View v) {
+					sortAlpha = !sortAlpha;
+					if (sortAlpha){
+						Collections.sort(getCoreCharacter().getSkills(), alphaComparator);
+					} else {
+						Collections.sort(getCoreCharacter().getSkills(), numberComparator);
+					}
 					skillListAdapter.notifyDataSetChanged();
 				}
 			});

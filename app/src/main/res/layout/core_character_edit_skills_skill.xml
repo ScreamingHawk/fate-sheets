@@ -11,12 +11,30 @@
 		android:layout_height="1dp"
 		android:background="@color/colorDivider"/>
 
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="@string/edit_character_skills_title"
-		android:background="@color/colorFaded"
-		android:padding="@dimen/section_title_padding"/>
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/skills_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/edit_character_skills_title"
+			android:background="@color/colorFaded"
+			android:padding="@dimen/section_title_padding"/>
+
+		<ImageButton
+			android:id="@+id/sort_skills"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="?selectableItemBackgroundBorderless"
+			android:padding="@dimen/activity_vertical_margin"
+			android:src="@mipmap/ic_sort_black_24dp"
+			android:layout_alignTop="@id/skills_title"
+			android:layout_alignEnd="@id/skills_title"
+			android:layout_alignBottom="@id/skills_title"/>
+
+	</RelativeLayout>
 
 	<View
 		android:layout_width="match_parent"
