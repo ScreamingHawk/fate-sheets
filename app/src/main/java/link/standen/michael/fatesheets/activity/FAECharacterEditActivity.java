@@ -63,14 +63,19 @@ public class FAECharacterEditActivity extends SharedMenuActivity implements Char
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View view) {
-				if (CharacterHelper.saveFAECharacter(FAECharacterEditActivity.this, getCharacter())) {
-					Snackbar.make(view, getResources().getString(R.string.toast_character_saved_successful), Snackbar.LENGTH_LONG)
-							.setAction("Action", null).show();
-				} else {
-					Snackbar.make(view, getResources().getString(R.string.toast_character_saved_error), Snackbar.LENGTH_LONG)
-							.setAction("Action", null).show();
-				}
+			public void onClick(final View view) {
+				clearFocus(new Runnable() {
+					@Override
+					public void run() {
+						if (CharacterHelper.saveFAECharacter(FAECharacterEditActivity.this, getCharacter())) {
+							Snackbar.make(view, getResources().getString(R.string.toast_character_saved_successful), Snackbar.LENGTH_LONG)
+									.setAction("Action", null).show();
+						} else {
+							Snackbar.make(view, getResources().getString(R.string.toast_character_saved_error), Snackbar.LENGTH_LONG)
+									.setAction("Action", null).show();
+						}
+					}
+				});
 			}
 		});
 

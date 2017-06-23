@@ -2,6 +2,7 @@ package link.standen.michael.fatesheets.activity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -14,6 +15,8 @@ import link.standen.michael.fatesheets.util.DiceClickListener;
  * An abstract class that handles the menu items shared across activities.
  */
 public abstract class SharedMenuActivity extends AppCompatActivity {
+
+	private static final long FOCUS_PAUSE = 500;
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,5 +50,20 @@ public abstract class SharedMenuActivity extends AppCompatActivity {
 	protected void setupDiceFAB() {
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.dice_fab);
 		fab.setOnClickListener(new DiceClickListener(getResources()));
+	}
+
+	/**
+	 * Clears the focus and runs the callback.
+	 */
+	protected void clearFocus(Runnable callback) {
+		try {
+			getCurrentFocus().clearFocus();
+
+		} catch (NullPointerException e){
+			// Nothing in focus. Ignore
+		}
+		if (callback != null) {
+			new Handler().postDelayed(callback, FOCUS_PAUSE);
+		}
 	}
 }
