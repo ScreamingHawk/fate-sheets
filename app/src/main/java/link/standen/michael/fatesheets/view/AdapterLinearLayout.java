@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.LinearLayout;
@@ -59,7 +60,12 @@ public class AdapterLinearLayout extends LinearLayout {
 	protected void onDetachedFromWindow() {
 		super.onDetachedFromWindow();
 		if (adapter != null){
-			adapter.unregisterDataSetObserver(dataSetObserver);
+			try {
+				adapter.unregisterDataSetObserver(dataSetObserver);
+			} catch (IllegalStateException e){
+				// Log error and ignore. I think it's fine.
+				Log.e(TAG, "Observer was not registered.", e);
+			}
 		}
 	}
 
