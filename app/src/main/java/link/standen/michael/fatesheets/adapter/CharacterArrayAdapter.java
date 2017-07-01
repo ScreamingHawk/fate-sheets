@@ -61,11 +61,9 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 		final String name = CharacterHelper.getCharacterNameFromFilename(filename);
 		final Resources resources = context.getResources();
 
-		// Description
-		((TextView) view.findViewById(R.id.character_name)).setText(name);
 
-		// Edit button
-		view.findViewById(R.id.edit_character).setOnClickListener(new View.OnClickListener() {
+
+		View.OnClickListener editListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent intent = null;
@@ -84,7 +82,15 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 							.setAction("Action", null).show();
 				}
 			}
-		});
+		};
+
+		// Description
+		TextView descriptionView = (TextView) view.findViewById(R.id.character_name);
+		descriptionView.setText(name);
+		descriptionView.setOnClickListener(editListener);
+
+		// Edit button
+		view.findViewById(R.id.edit_character).setOnClickListener(editListener);
 
 		// Delete button
 		view.findViewById(R.id.delete_character).setOnClickListener(new View.OnClickListener() {
