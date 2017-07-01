@@ -26,11 +26,6 @@ public class FAECharacterEditActivity extends SharedMenuActivity implements Char
 	 */
 	private FAECharacterEditSectionAdapter mSectionsPagerAdapter;
 
-	/**
-	 * The {@link ViewPager} that will host the section contents.
-	 */
-	private ViewPager mViewPager;
-
 	private FAECharacter character;
 
 	@Override
@@ -64,6 +59,7 @@ public class FAECharacterEditActivity extends SharedMenuActivity implements Char
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View view) {
+				exportPDF();
 				clearFocus(new Runnable() {
 					@Override
 					public void run() {

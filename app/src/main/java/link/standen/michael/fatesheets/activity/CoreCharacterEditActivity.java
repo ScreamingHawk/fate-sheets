@@ -27,11 +27,6 @@ public class CoreCharacterEditActivity extends SharedMenuActivity implements Cha
 	 */
 	private CoreCharacterEditSectionAdapter mSectionsPagerAdapter;
 
-	/**
-	 * The {@link ViewPager} that will host the section contents.
-	 */
-	private ViewPager mViewPager;
-
 	private CoreCharacter character;
 
 	@Override
