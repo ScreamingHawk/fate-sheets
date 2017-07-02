@@ -20,7 +20,7 @@ public abstract class JsonFileHelper {
 	 * Saves JSON to a file.
 	 * @return True if the write was successful, false otherwise.
 	 */
-	protected static boolean saveJsonToFile(Context context, String json, String filename) {
+	public static boolean saveJsonToFile(Context context, String json, String filename) {
 		try {
 			FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE);
 			fos.write(json.getBytes());
@@ -37,7 +37,7 @@ public abstract class JsonFileHelper {
 	 * Loads JSON from a file.
 	 */
 	@Nullable
-	protected static String getJsonFromFile(Context context, String filename){
+	public static String getJsonFromFile(Context context, String filename){
 		String json = null;
 
 		try {
@@ -65,7 +65,7 @@ public abstract class JsonFileHelper {
 	 * Deletes a file.
 	 * @return True if the delete was successful, false otherwise.
 	 */
-	protected static boolean deleteFile(Context context, String filename) {
+	public static boolean deleteFile(Context context, String filename) {
 		return context.deleteFile(filename);
 	}
 

@@ -8,6 +8,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ import link.standen.michael.fatesheets.activity.CharacterListActivity;
 import link.standen.michael.fatesheets.activity.FAECharacterEditActivity;
 import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.util.CharacterHelper;
+import link.standen.michael.fatesheets.util.JsonFileHelper;
 
 /**
  * Manages a list of characters.
@@ -61,8 +63,6 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 		final String name = CharacterHelper.getCharacterNameFromFilename(filename);
 		final Resources resources = context.getResources();
 
-
-
 		View.OnClickListener editListener = new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -91,6 +91,26 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 
 		// Edit button
 		view.findViewById(R.id.edit_character).setOnClickListener(editListener);
+
+		// Share button
+		view.findViewById(R.id.share_character).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Log.d(TAG, "open" +filename);
+				Intent intent = new Intent(Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				// Share the file for things like Drive
+				intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(context,
+						context.getPackageName() + ".provider",
+						context.getFileStreamPath(filename)));
+				// Share the file contents for things like Copy to Clipboard
+				intent.putExtra(Intent.EXTRA_TEXT, JsonFileHelper.getJsonFromFile(context, filename));
+
+				intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+				context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_via)));
+			}
+		});
 
 		// Delete button
 		view.findViewById(R.id.delete_character).setOnClickListener(new View.OnClickListener() {

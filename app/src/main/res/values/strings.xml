@@ -130,6 +130,7 @@
 	<!-- General -->
 	<string name="number_zero_hint">0</string>
 	<string name="logo_description">Logo</string>
+	<string name="share_via">Share via&#8230;</string>
 
 
 	<!-- Credits -->
