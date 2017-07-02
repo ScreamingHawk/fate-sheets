@@ -12,6 +12,8 @@
 
 	<dimen name="section_title_padding">16dp</dimen>
 
+	<dimen name="action_padding">8dp</dimen>
+
 	<!-- Credits -->
 	<dimen name="credits_padding">16dp</dimen>
 
