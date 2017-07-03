@@ -63,12 +63,10 @@ public class CharacterListActivity extends SharedMenuActivity {
 						// Lookup based on string value so we aren't relying on position
 						String selected = types[which].toString();
 						Intent intent = null;
-						if (selected != null) {
-							if (selected.equals(resources.getString(R.string.fate_core))) {
-								intent = new Intent(CharacterListActivity.this, CoreCharacterEditActivity.class);
-							} else if (selected.equals(resources.getString(R.string.fate_accelerated_edition))) {
-								intent = new Intent(CharacterListActivity.this, FAECharacterEditActivity.class);
-							}
+						if (selected.equals(resources.getString(R.string.fate_core))) {
+							intent = new Intent(CharacterListActivity.this, CoreCharacterEditActivity.class);
+						} else if (selected.equals(resources.getString(R.string.fate_accelerated_edition))) {
+							intent = new Intent(CharacterListActivity.this, FAECharacterEditActivity.class);
 						}
 						if (intent != null) {
 							CharacterListActivity.this.startActivity(intent);
