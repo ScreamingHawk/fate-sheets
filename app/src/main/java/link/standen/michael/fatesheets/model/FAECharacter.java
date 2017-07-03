@@ -12,6 +12,11 @@ import link.standen.michael.fatesheets.R;
  */
 public class FAECharacter extends Character {
 
+	@Override
+	public String getSheetType() {
+		return "FAE";
+	}
+
 	private List<Approach> approaches;
 	private List<Stress> stress;
 

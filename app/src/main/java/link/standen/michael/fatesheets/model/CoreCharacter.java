@@ -8,6 +8,11 @@ import java.util.List;
  */
 public class CoreCharacter extends Character {
 
+	@Override
+	public String getSheetType() {
+		return "CORE";
+	}
+
 	private List<Skill> skills;
 	private List<String> extras;
 	private List<Stress> physicalStress;

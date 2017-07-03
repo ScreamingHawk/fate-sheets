@@ -11,6 +11,7 @@ public abstract class Character implements Serializable {
 
 	public static final String INTENT_EXTRA_NAME = "Character";
 
+	private String sheetType;
 	private String name;
 	private String description;
 	private Integer fatePoints;
@@ -102,4 +103,9 @@ public abstract class Character implements Serializable {
 		fatePoints--;
 	}
 
+	public abstract String getSheetType();
+
+	public void setSheetType(String sheetType) {
+		this.sheetType = sheetType;
+	}
 }
