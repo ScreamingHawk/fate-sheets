@@ -10,8 +10,10 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.PopupMenu;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -90,57 +92,64 @@ public class CharacterArrayAdapter extends ArrayAdapter<String> {
 		descriptionView.setOnClickListener(editListener);
 
 		// Edit button
-		view.findViewById(R.id.edit_character).setOnClickListener(editListener);
-
-		// Share button
-		view.findViewById(R.id.share_character).setOnClickListener(new View.OnClickListener() {
+		view.findViewById(R.id.more_character).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Log.d(TAG, "open" +filename);
-				Intent intent = new Intent(Intent.ACTION_SEND);
-				intent.setType("text/plain");
-				// Share the file for things like Drive
-				intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(context,
-						context.getPackageName() + ".provider",
-						context.getFileStreamPath(filename)));
-				// Share the file contents for things like Copy to Clipboard
-				intent.putExtra(Intent.EXTRA_TEXT, JsonFileHelper.getJsonFromFile(context, filename));
+				PopupMenu pop = new PopupMenu(context, v);
+				pop.getMenuInflater().inflate(R.menu.menu_character_option, pop.getMenu());
+				pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+					@Override
+					public boolean onMenuItemClick(MenuItem item) {
+						switch (item.getItemId()) {
+							case R.id.action_sheet_share_json:
+								// Share button
+								Intent intent = new Intent(Intent.ACTION_SEND);
+								intent.setType("text/plain");
+								// Share the file for things like Drive
+								intent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(context,
+										context.getPackageName() + ".provider",
+										context.getFileStreamPath(filename)));
+								// Share the file contents for things like Copy to Clipboard
+								intent.putExtra(Intent.EXTRA_TEXT, JsonFileHelper.getJsonFromFile(context, filename));
 
-				intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+								intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-				context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_via)));
-			}
-		});
+								context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_via)));
+								break;
 
-		// Delete button
-		view.findViewById(R.id.delete_character).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// Are you sure dialog
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
-				builder.setMessage(resources.getString(R.string.character_delete_dialog, name))
-						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								// Do the delete
-								if (CharacterHelper.deleteCharacterFile(context, filename)) {
-									items.remove(position);
-									CharacterArrayAdapter.this.notifyDataSetChanged();
-									context.checkEmptyCharacterList();
-									Snackbar.make(parent, resources.getString(R.string.toast_character_deleted_successful, name), Snackbar.LENGTH_LONG)
-											.setAction("Action", null).show();
-								} else {
-									Snackbar.make(parent, resources.getString(R.string.toast_character_deleted_error), Snackbar.LENGTH_LONG)
-											.setAction("Action", null).show();
-								}
-							}
-						})
-						.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-							}
-						}).show();
+							case R.id.action_sheet_delete:
+								// Delete button
+								// Are you sure dialog
+								AlertDialog.Builder builder = new AlertDialog.Builder(context);
+								builder.setMessage(resources.getString(R.string.character_delete_dialog, name))
+										.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												// Do the delete
+												if (CharacterHelper.deleteCharacterFile(context, filename)) {
+													items.remove(position);
+													CharacterArrayAdapter.this.notifyDataSetChanged();
+													context.checkEmptyCharacterList();
+													Snackbar.make(parent, resources.getString(R.string.toast_character_deleted_successful, name), Snackbar.LENGTH_LONG)
+															.setAction("Action", null).show();
+												} else {
+													Snackbar.make(parent, resources.getString(R.string.toast_character_deleted_error), Snackbar.LENGTH_LONG)
+															.setAction("Action", null).show();
+												}
+											}
+										})
+										.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(DialogInterface dialog, int which) {
+												dialog.dismiss();
+											}
+										}).show();
+								break;
+						}
+						return true;
+					}
+				});
+				pop.show();
 			}
 		});
 		return view;

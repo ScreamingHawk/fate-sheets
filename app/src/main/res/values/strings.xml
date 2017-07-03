@@ -13,6 +13,9 @@
 	<string name="action_settings">Settings</string>
 	<string name="action_credits">Credits</string>
 
+	<string name="action_sheet_delete">Delete</string>
+	<string name="action_sheet_share_json">Share for Fate Sheets</string>
+
 	<string name="character_name_default">Hero Protagonist</string>
 	<!--Yours Truly-->
 	<!--Winston Smith-->

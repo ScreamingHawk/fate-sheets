@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto"
+	  xmlns:tools="http://schemas.android.com/tools"
+	  tools:context="link.standen.michael.fatesheets.activity.CharacterListActivity">
+	<item
+		android:id="@+id/action_sheet_share_json"
+		android:orderInCategory="100"
+		android:name="@string/action_sheet_share_json"
+		android:title="@string/action_sheet_share_json"
+		android:icon="@drawable/ic_share_black_24dp"
+		app:showAsAction="never"/>
+	<item
+		android:id="@+id/action_sheet_delete"
+		android:orderInCategory="1000"
+		android:name="@string/action_sheet_delete"
+		android:title="@string/action_sheet_delete"
+		android:icon="@drawable/ic_delete_black_24dp"
+		app:showAsAction="never"/>
+</menu>
