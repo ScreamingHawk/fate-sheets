@@ -3,6 +3,12 @@
 	  xmlns:tools="http://schemas.android.com/tools"
 	  tools:context="link.standen.michael.fatesheets.activity.SharedMenuActivity">
 	<item
+		android:id="@+id/action_import_sheet"
+		android:orderInCategory="50"
+		android:name="@string/action_import_sheet"
+		android:title="@string/action_import_sheet"
+		app:showAsAction="never"/>
+	<item
 		android:id="@+id/action_edit_skills"
 		android:orderInCategory="100"
 		android:name="@string/action_edit_skills"

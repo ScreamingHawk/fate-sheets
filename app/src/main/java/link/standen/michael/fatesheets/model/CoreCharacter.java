@@ -8,9 +8,11 @@ import java.util.List;
  */
 public class CoreCharacter extends Character {
 
+	public static final String SHEET_TYPE = "CORE";
+
 	@Override
 	public String getSheetType() {
-		return "CORE";
+		return SHEET_TYPE;
 	}
 
 	private List<Skill> skills;

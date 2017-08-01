@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import link.standen.michael.fatesheets.R;
+import link.standen.michael.fatesheets.model.Character;
 import link.standen.michael.fatesheets.model.CoreCharacter;
 import link.standen.michael.fatesheets.model.FAECharacter;
 
@@ -162,6 +163,23 @@ public final class CharacterHelper extends JsonFileHelper {
 	 */
 	public static boolean deleteCharacterFile(Context context, String filename) {
 		return deleteFile(context, filename);
+	}
+
+	public static void createCharacterSaveFromJson(Context context, String json){
+		Gson gson = new Gson();
+
+		Log.d(TAG, "JSON: "+json);
+
+		Character cha = gson.fromJson(json, Character.class);
+		if (CoreCharacter.SHEET_TYPE.equals(cha.getSheetType())){
+			Log.d(TAG, "Creating Core Character: "+cha.getName());
+			saveCoreCharacter(context, gson.fromJson(json, CoreCharacter.class));
+		} else if (FAECharacter.SHEET_TYPE.equals(cha.getSheetType())){
+			Log.d(TAG, "Creating FAE Character: "+cha.getName());
+			saveFAECharacter(context, gson.fromJson(json, FAECharacter.class));
+		} else {
+			Log.d(TAG, String.format("Failed to create character %s of type %s", cha.getName(), cha.getSheetType()));
+		}
 	}
 
 }

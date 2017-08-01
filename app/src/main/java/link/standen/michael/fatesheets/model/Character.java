@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * An abstract class for various character types.
  */
-public abstract class Character implements Serializable {
+public class Character implements Serializable {
 
 	public static final String INTENT_EXTRA_NAME = "Character";
 
@@ -103,7 +103,9 @@ public abstract class Character implements Serializable {
 		fatePoints--;
 	}
 
-	public abstract String getSheetType();
+	public String getSheetType() {
+		return sheetType;
+	}
 
 	public void setSheetType(String sheetType) {
 		this.sheetType = sheetType;

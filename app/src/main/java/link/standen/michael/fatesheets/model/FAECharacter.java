@@ -12,9 +12,11 @@ import link.standen.michael.fatesheets.R;
  */
 public class FAECharacter extends Character {
 
+	public static final String SHEET_TYPE = "FAE";
+
 	@Override
 	public String getSheetType() {
-		return "FAE";
+		return SHEET_TYPE;
 	}
 
 	private List<Approach> approaches;

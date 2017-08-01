@@ -1,6 +1,7 @@
 package link.standen.michael.fatesheets.util;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -8,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * A helper class for managing JSON files
@@ -37,12 +39,36 @@ public abstract class JsonFileHelper {
 	 * Loads JSON from a file.
 	 */
 	@Nullable
-	public static String getJsonFromFile(Context context, String filename){
+	public static String getJsonFromFile(Context context, String filename) {
+		try {
+			return getJsonFromFile(context.openFileInput(filename), filename);
+		} catch (FileNotFoundException e) {
+			Log.e(TAG, String.format("JSON file not found: %s", filename), e);
+		}
+		return null;
+	}
+
+	/**
+	 * Loads JSON from a file.
+	 */
+	@Nullable
+	public static String getJsonFromFile(Context context, Uri uri) {
+		try {
+			return getJsonFromFile(context.getContentResolver().openInputStream(uri), uri.getLastPathSegment());
+		} catch (FileNotFoundException e) {
+			Log.e(TAG, String.format("JSON file not found: %s", uri), e);
+		}
+		return null;
+	}
+
+	/**
+	 * Loads JSON from a file.
+	 */
+	@Nullable
+	private static String getJsonFromFile(InputStream fis, String filename){
 		String json = null;
 
 		try {
-			FileInputStream fis = context.openFileInput(filename);
-
 			StringBuilder bob = new StringBuilder("");
 			byte[] buff = new byte[1024];
 			int n;
@@ -52,8 +78,6 @@ public abstract class JsonFileHelper {
 			fis.close();
 
 			json = bob.toString();
-		} catch (FileNotFoundException e) {
-			Log.e(TAG, String.format("JSON file %s not found", filename), e);
 		} catch (IOException e) {
 			Log.e(TAG, String.format("Error reading file %s", filename), e);
 		}

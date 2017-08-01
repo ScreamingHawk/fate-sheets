@@ -8,13 +8,14 @@
 	<string name="app_name">&appname;</string>
 
 	<!-- Menus -->
+	<string name="action_import_sheet">Import Fate Sheet</string>
 	<string name="action_edit_skills">Edit Skills List</string>
 	<string name="action_docs">Rules / Docs</string>
 	<string name="action_settings">Settings</string>
 	<string name="action_credits">Credits</string>
 
 	<string name="action_sheet_delete">Delete</string>
-	<string name="action_sheet_share_json">Share for Fate Sheets</string>
+	<string name="action_sheet_share_json">Export Fate Sheet</string>
 
 	<string name="character_name_default">Hero Protagonist</string>
 	<!--Yours Truly-->
